@@ -16,7 +16,40 @@ a {
   padding-left: 0; }
 
 #editProfile {
-  padding: 50px 450px; }
+  padding-top: 0;
+  padding-bottom: 50px;
+  padding-left: 350px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; }
+
+#edit-title {
+  padding-top: 30px;
+  padding-left: 530px;
+  padding-bottom: 0;
+  font-weight: bolder;
+  font-size: 30px; }
+
+#icons-link {
+  color: black;
+  padding: 18px; }
+
+#edit-list {
+  width: 600px; }
+
+#mydiv {
+  position: absolute;
+  z-index: 9;
+  background-color: #f1f1f1;
+  border: 1px solid #d3d3d3;
+  text-align: center; }
+
+#mydivheader {
+  padding: 10px;
+  cursor: move;
+  z-index: 10;
+  background-color: #545b62;
+  color: #fff; }
 
 .container {
   width: 100%;

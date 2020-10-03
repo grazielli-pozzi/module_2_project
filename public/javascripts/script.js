@@ -106,3 +106,4 @@ function updateSubtotal(product) {
 
   return subTotal;
 }
+

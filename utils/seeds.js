@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+/* const mongoose = require('mongoose')
 const Produto = require('../models/Produto.model');
 
 mongoose
@@ -8,13 +8,13 @@ mongoose
 	})
 	.catch((err) => {
 		console.error('Error connecting to mongo', err);
-	});
+	}); */
 
 const seed = [
 	{
 		nome: 'Praia da Concha',
 		categoria: 'Lanche',
-		srcImagem: '#',
+		srcImagem: 'https://wessel.com.br/storage/app/uploads/public/5b6/c71/ea0/5b6c71ea08ef7889428492.jpg',
 		descricao: '180 gramas de filé mignon fatiado, molho de gorgonzola e queijo mussarela. Opcional de cebola caramelizada ou puxada na manteiga',
 		ingredientes: ['File Mignon', 'Molho de Gorgonzola', 'Queijo Mussarela', 'Cebola'],
 		preco: 30,
@@ -26,7 +26,7 @@ const seed = [
 	{
 		nome: 'Milionários',
 		categoria: 'Lanche',
-		srcImagem: '#',
+		srcImagem: 'https://wessel.com.br/storage/app/uploads/public/5b2/d07/5e0/5b2d075e05029057326968.jpg',
 		descricao: '200 gramas de hambúrguer de picanha recheada com queijo, bacon, molho da casa, queijo mussarela. Opcional de cebola caramelizada ou puxada na manteiga',
 		ingredientes: ['Hambúrguer de Picanha', 'Bacon', 'Molho da Casa', 'Queijo Mussarela', 'Cebola'],
 		preco: 30,
@@ -38,7 +38,7 @@ const seed = [
 	{
 		nome: 'Olivença (Vegetariano)',
 		categoria: 'Lanche',
-		srcImagem: '#',
+		srcImagem: 'https://i0.statig.com.br/bancodeimagens/8s/ec/6u/8sec6u4vepwqzwmx3mk7b5ryi.jpg',
 		descricao: '200 gramas de salada de berinjela, tomate, alface e queijo mussarela',
 		ingredientes: ['Berinjela', 'Alface', 'Tomate', 'Queijo Mussarela'],
 		preco: 30,
@@ -50,7 +50,7 @@ const seed = [
 	{
 		nome: 'Praia do Cururupe',
 		categoria: 'Lanche',
-		srcImagem: '#',
+		srcImagem: 'https://ohamburguerperfeito.com.br/wp-content/uploads/2014/10/15.png',
 		descricao: '180 gramas de hambúrguer de contra filé, bacon, tomate e cebola roxa, molho da casa, queijo (mussarela ou cheddar)',
 		ingredientes: ['Hambúrguer de Contra Filé', 'Bacon', 'Tomate', 'Cebola Roxa', 'Molho da Casa', 'Queijo Mussarela ou Cheddar'],
 		preco: 28,
@@ -62,7 +62,7 @@ const seed = [
 	{
 		nome: 'Praia do Norte',
 		categoria: 'Lanche',
-		srcImagem: '#',
+		srcImagem: 'https://abrilmdemulher.files.wordpress.com/2018/04/hamburguer-de-cordeiro-com-queijo-de-coalho.jpg?quality=90&strip=info&w=654&h=436&crop=1',
 		descricao: '150 gramas de hambúrguer de carne do sol, bacon, molho da casa e queijo coalho',
 		ingredientes: ['Hambúrguer de Carne do Sol', 'Bacon', 'Molho da Casa', 'Queijo coalho'],
 		preco: 25,
@@ -74,7 +74,7 @@ const seed = [
 	{
 		nome: 'Batuba',
 		categoria: 'Lanche',
-		srcImagem: '#',
+		srcImagem: 'https://s2.glbimg.com/Dm-O7zI7-u1rCihJrvmDrn7_81s=/645x388/i.glbimg.com/og/ig/infoglobo1/f/original/2020/02/10/hamburguer_de_costela_2.jpeg',
 		descricao: '150 gramas de hambúrguer de costela, cebola puxada na manteiga, molho da casa e queijo (mussarela ou cheddar)',
 		ingredientes: ['Hambúrguer de Costela', 'Cebola', 'Molho da Casa', 'Queijo Mussarela ou Cheddar'],
 		preco: 20,
@@ -86,7 +86,7 @@ const seed = [
 	{
 		nome: 'Cristo',
 		categoria: 'Lanche',
-		srcImagem: '#',
+		srcImagem: 'https://wessel.com.br/storage/app/uploads/public/5b2/d09/7d9/5b2d097d9d7ec339330847.jpg',
 		descricao: '150 gramas de hambúrguer de fraldinha, cebola caramelizada, molho da casa e queijo (mussarela ou cheddar)',
 		ingredientes: ['Hambúrguer de Fraldinha', 'Cebola', 'Molho da Casa', 'Queijo Mussarela ou Cheddar'],
 		preco: 20,
@@ -98,7 +98,7 @@ const seed = [
 	{
 		nome: 'Backdoor',
 		categoria: 'Lanche',
-		srcImagem: '#',
+		srcImagem: 'https://i0.statig.com.br/bancodeimagens/2q/oy/jb/2qoyjbjj7figgivfqmqob17jq.jpg',
 		descricao: '150 gramas de frango desfiado, milho, cebola, alface, molho da casa e queijo mussarela',
 		ingredientes: ['Frango Desfiado', 'Milho', 'Cebola', 'Alface', 'Molho da Casa', 'Queijo Mussarela'],
 		preco: 18,
@@ -110,7 +110,7 @@ const seed = [
 	{
 		nome: 'Soares Lopes Junior',
 		categoria: 'Lanche',
-		srcImagem: '#',
+		srcImagem: 'https://f088b146830a59b5.cdn.gocache.net/uploads/noticias/2020/05/27/5d1eb2a4ea88a04f87092e334635c25ee0a084cc.jpg',
 		descricao: '80 gramas de hambúrguer, bacon ou doritos, molho da casa e queijo (mussarela ou cheddar)',
 		ingredientes: ['Hambúrguer', 'Bacon ou Doritos', 'Molho da Casa', 'Queijo Mussarela ou Cheddar'],
 		preco: 13	,
@@ -261,9 +261,12 @@ const seed = [
 
 ];
 
-Produto.create(seed)
+/* Produto.create(seed)
 	.then((result) => {
 		console.log(`Criou ${result.length} produtos.`);
 		mongoose.connection.close();
 	})
-	.catch((error) => console.log(error));
+	.catch((error) => console.log(error)); */
+
+
+ module.exports = seed;

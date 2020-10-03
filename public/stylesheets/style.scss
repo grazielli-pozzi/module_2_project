@@ -1,5 +1,4 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -22,4 +21,36 @@ a {
 
 #editProfile {
   padding: 50px 450px;
+}
+
+.menu-container {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.produto-card {
+  margin: 10px 3.8vw;
+  height: 52vh;
+  display: flex;
+  text-align: justify;
+  img {
+    height: 40%;
+  }
+  p {
+    padding-top: 10px;
+  }
+  h6 {
+    margin-left: 20px;
+  }
+}
+.buttons-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: none;
+  background: #2c7bff;
+  span {
+    color: white;
+  }
 }

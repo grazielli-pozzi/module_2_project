@@ -1,0 +1,20 @@
+{
+  "env": {
+    "commonjs": true,
+    "es2021": true,
+    "node": true
+  },
+  "extends": [
+    "airbnb-base"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 12
+  },
+  "rules": {
+    "indent": [4, "tab", { "SwitchCase": 1, "VariableDeclarator": 1 }],
+    "no-tabs": 0,
+    "prop-types": 0,
+    "jsx-indent": [4, "tab"],
+    "jsx-indent-props": [4, "tab"]
+  }
+}

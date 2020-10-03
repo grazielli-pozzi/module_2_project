@@ -4,7 +4,7 @@ const { Schema, model } = mongoose;
 
 const produtoSchema = new Schema({
     nome: { type: String, required: true },
-    categoria: { type: String, enum: ['Bebida', 'Lanche', 'Entrada', 'Sobremesa', 'Adicional', 'Combo'], required: true },
+    categoria: { type: String, enum: ['Bebida', 'Lanche', 'Entradas', 'Sobremesa', 'Adicional', 'Combo'], required: true },
     srcImagem: { type: String, required: true },
     descricao: { type: String, required: true },
     ingredientes: { type: Array, required: true },

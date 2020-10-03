@@ -55,8 +55,9 @@ app.locals.title = 'Express - Generated with IronGenerator';
 const perfil = require('./routes/index')
 
 const index = require('./routes/index');
+const cart = require('./routes/cart.routes')
 
 app.use('/', index);
-
+app.use('/', cart);
 
 module.exports = app;

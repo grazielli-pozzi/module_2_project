@@ -7,13 +7,14 @@ const pedidoSchema = new Schema({
 	itens: [{
 		produtoID: { type: Schema.Types.ObjectId, ref: 'produto', required: true },
 		quantidade: { type: Number, required: true }
-   	}],
+	   }],
+	observacao: String,
 	pagamento: { type: String, enum: ['Cartao de Credito', 'Cartao de Debito', 'Dinheiro'], required: true },
 	endereco: {
 		cep: { type: String, required: true },
 		rua: { type: String, required: true },
 		numero: { type: String, required: true }, // String pois há casas com mesmo número mas com A, B, etc no final
-		complemento: { type: String },
+		complemento: String,
 		bairro: { type: String, required: true }
 	},
 	previsaoEntrega: { type: String, required: true, default: '1 hora' }

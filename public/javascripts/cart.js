@@ -1,8 +1,33 @@
-let contador = document.getElementById('quantidade');
+window.onload = () => {
+	const ids = Object.keys(localStorage);
+	ids.forEach(id => {
+		const thisId = JSON.parse(localStorage.getItem(id));
+		document.getElementsByClassName(id)[0].textContent = thisId.qty;
+	});
+}
 
-const addProduto = (id) => {
-    if (localStorage.length === 0) {
-        localStorage.setItem('produto', id);
-        contador.innerText = 1
-    }
+const createProduto = (id) => {
+	if (Object.keys(localStorage).includes(id)) {
+		const data = JSON.parse(localStorage.getItem(id));
+		data.qty += 1
+		localStorage.setItem(id, JSON.stringify(data));
+		document.getElementsByClassName(`${id}`)[0].textContent = data.qty;
+	} else {
+		const data = { qty: 1 };
+		localStorage.setItem(id, JSON.stringify(data));
+		document.getElementsByClassName(`${id}`)[0].textContent = data.qty;
+	}
+}
+
+const deleteProduto = (id) => {
+	const data = JSON.parse(localStorage.getItem(id));
+	if (data.qty > 1) {
+		data.qty -= 1;
+		localStorage.setItem(id, JSON.stringify(data));
+		document.getElementsByClassName(`${id}`)[0].textContent = data.qty;
+	}
+	else {
+		localStorage.removeItem(id);
+		document.getElementsByClassName(`${id}`)[0].textContent = 0;
+	}
 }

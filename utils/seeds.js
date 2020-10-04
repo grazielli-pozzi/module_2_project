@@ -1,4 +1,4 @@
-/* const mongoose = require('mongoose')
+const mongoose = require('mongoose')
 const Produto = require('../models/Produto.model');
 
 mongoose
@@ -8,7 +8,7 @@ mongoose
 	})
 	.catch((err) => {
 		console.error('Error connecting to mongo', err);
-	}); */
+	});
 
 const seed = [
 	{
@@ -122,7 +122,7 @@ const seed = [
 	{
 		nome: 'Refrigerante Lata',
 		categoria: 'Bebida',
-		srcImagem: '#',
+		srcImagem: 'https://d3efjz1jvymzgz.cloudfront.net/Custom/Content/Products/10/11/1011792_refrigerante-coca-cola-lata-350ml-fardo-c-12-unidades_z1_637051111791642510.png',
 		descricao: 'Lata 350ml',
 		ingredientes: ['Coca Cola', 'Guaraná', 'Itubaína', 'Schweppes sabores', 'Tônica'],
 		preco: 5,
@@ -137,7 +137,7 @@ const seed = [
 	{
 		nome: 'Refrigerante Litro',
 		categoria: 'Bebida',
-		srcImagem: '#',
+		srcImagem: 'https://casafiesta.fbitsstatic.net/img/p/refrigerante-coca-cola-pet-1l-67784/234652.jpg?w=420&h=420&v=no-change',
 		descricao: 'Garrafa de 1 litro',
 		ingredientes: ['Coca Cola', 'Guaraná', 'Itubaína', 'Dolly sabores'],
 		preco: 9,
@@ -152,7 +152,7 @@ const seed = [
 	{
 		nome: 'Suco 300ml',
 		categoria: 'Bebida',
-		srcImagem: '#',
+		srcImagem: 'https://lh3.googleusercontent.com/proxy/J0gfokFQRK9gRHF-xig7Z1IPfuOqwTMOYO84xvPX_e2UUEWV71zSp_Tw26bfeyTMabMuF2ZSmEkCmsFspGYjv7TNtizbzXW8-2UkzxApu06VlckUiMkcVt0Y8iAInllav5Z3cA',
 		descricao: 'Suco natural coado',
 		ingredientes: ['Laranja', 'Abacaxi com Hortelã', 'Limão', 'Melancia'],
 		preco: 4,
@@ -167,7 +167,7 @@ const seed = [
 	{
 		nome: 'Suco 500ml',
 		categoria: 'Bebida',
-		srcImagem: '#',
+		srcImagem: 'https://lh3.googleusercontent.com/proxy/J0gfokFQRK9gRHF-xig7Z1IPfuOqwTMOYO84xvPX_e2UUEWV71zSp_Tw26bfeyTMabMuF2ZSmEkCmsFspGYjv7TNtizbzXW8-2UkzxApu06VlckUiMkcVt0Y8iAInllav5Z3cA',
 		descricao: 'Suco natural coado',
 		ingredientes: ['Laranja', 'Abacaxi com Hortelã', 'Limão', 'Melancia'],
 		preco: 6,
@@ -182,7 +182,7 @@ const seed = [
 	{
 		nome: 'Água',
 		categoria: 'Bebida',
-		srcImagem: '#',
+		srcImagem: 'https://hiperideal.vteximg.com.br/arquivos/ids/168296-1000-1000/1277910.jpg?v=636615818250200000',
 		descricao: 'Garrafa com ou sem gás',
 		ingredientes: ['Água Mineral Natural'],
 		preco: 3,
@@ -194,7 +194,7 @@ const seed = [
 	{
 		nome: 'Cerveja Lata Puro Malte',
 		categoria: 'Bebida',
-		srcImagem: '#',
+		srcImagem: 'https://trimais.vteximg.com.br/arquivos/ids/996374-1000-1000/foto_original.jpg?v=637309478660870000',
 		descricao: 'Lata 350ml cervejas puro malte',
 		ingredientes: ['Skol Puro Malte', 'Heineken', 'Stella Artois', 'Bohemia', 'Kaiser Gold', 'Eisenbahn Pils', 'Serra Malte'],
 		preco: 6,
@@ -209,7 +209,7 @@ const seed = [
 	{
 		nome: 'Cerveja Long Neck',
 		categoria: 'Bebida',
-		srcImagem: '#',
+		srcImagem: 'https://trimais.vteximg.com.br/arquivos/ids/967178-1000-1000/foto_original.jpg?v=637135125330370000',
 		descricao: 'Cervejas Long Neck',
 		ingredientes: ['Heineken', 'Stella Artois', 'Eisenbahn', 'Corona'],
 		preco: 8,
@@ -224,7 +224,7 @@ const seed = [
 	{
 		nome: 'Batata Frita com Filé',
 		categoria: 'Entradas',
-		srcImagem: '#',
+		srcImagem: 'https://restaurantepururuca.com.br/wp-content/uploads/2016/08/Foto-1-1.jpg',
 		descricao: 'Porção de batatas fritas e contrá filé',
 		ingredientes: ['Batata', 'Contra Filé'],
 		preco: 30	,
@@ -236,7 +236,20 @@ const seed = [
 	{
 		nome: 'Batata Frita com Refri',
 		categoria: 'Entradas',
-		srcImagem: '#',
+		srcImagem: 'https://www.pngkit.com/png/full/315-3155680_poro-de-batata-frita-png.png',
+		descricao: 'Porção de batatas fritas  e um Refri 1 litro',
+		ingredientes: ['Batata', 'Refrigerante'],
+		preco: 20	,
+		peso: '~ 150g',
+		volume: '1L',
+		infoNutricional: { calorias: '~ 570Kcal' },
+		precoDeCusto: 7,
+		disponivel: true
+	},
+	{
+		nome: 'Batata Frita Simples',
+		categoria: 'Entradas',
+		srcImagem: 'https://www.pngkit.com/png/full/315-3155680_poro-de-batata-frita-png.png',
 		descricao: 'Porção de batatas fritas  e um Refri 1 litro',
 		ingredientes: ['Batata', 'Refrigerante'],
 		preco: 20	,
@@ -261,12 +274,12 @@ const seed = [
 
 ];
 
-/* Produto.create(seed)
+Produto.create(seed)
 	.then((result) => {
 		console.log(`Criou ${result.length} produtos.`);
 		mongoose.connection.close();
 	})
-	.catch((error) => console.log(error)); */
+	.catch((error) => console.log(error));
 
 
  module.exports = seed;

@@ -1,0 +1,49 @@
+.menu-titulo {
+    padding-top: 50px;
+    padding: 50px 10px 20px 10px;
+    border-bottom: 2px solid lightgray;
+    margin-left: 5.35vw;
+    max-width: 64.5%;
+  }
+  
+  .menu-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    h3 {
+      display: block;
+      padding: 50px;
+    }
+  }
+  
+  .produto-card {
+    margin: 10px 3.8vw 30px 3.8vw;
+    height: 52vh;
+    display: flex;
+    text-align: justify;
+    img {
+      height: 40%;
+    }
+    p {
+      padding-top: 10px;
+    }
+    h6 {
+      margin-left: 20px;
+    }
+  }
+  
+  .bebidas img {
+    height: 57%;
+  }
+  
+  .buttons-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: none;
+    background: #2c7bff;
+    span {
+      color: white;
+    }
+  }

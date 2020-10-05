@@ -11,7 +11,7 @@ const path = require('path');
 
 
 mongoose
-    .connect('mongodb://localhost/burguer-expresso', { useNewUrlParser: true })
+    .connect('mongodb://localhost/burguer-expresso', { useNewUrlParser: true, useUnifiedTopology: true })
     .then((x) => {
         console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`);
     })
@@ -56,8 +56,10 @@ const perfil = require('./routes/index')
 
 const index = require('./routes/index');
 const cart = require('./routes/cart.routes')
+const private = require('./routes/private.routes');
 
 app.use('/', index);
 app.use('/', cart);
+app.use('/', private);
 
 module.exports = app;

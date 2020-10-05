@@ -262,7 +262,7 @@ const seed = [
 	{
 		nome: 'Adicionais',
 		categoria: 'Adicional',
-		srcImagem: '#',
+		srcImagem: 'https://www.cheftime.com.br/fotos-moveis/hamburguer-santa-cruz---los-ogros-imagem-passo-2-e475b2827a@2x.jpg',
 		descricao: 'Adicionais para Lanches e Entradas',
 		ingredientes: ['N/A'],
 		preco: 3	,

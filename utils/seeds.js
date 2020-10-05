@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 const Produto = require('../models/Produto.model');
+const Usuario = require('../models/Usuario.model');
 
 mongoose
 	.connect('mongodb://localhost/burguer-expresso', { useNewUrlParser: true })
@@ -10,7 +11,7 @@ mongoose
 		console.error('Error connecting to mongo', err);
 	});
 
-const seed = [
+const produtoSeed = [
 	{
 		nome: 'Praia da Concha',
 		categoria: 'Lanche',
@@ -274,12 +275,35 @@ const seed = [
 
 ];
 
-Produto.create(seed)
+const usuarioSeed = [{
+		nomeCompleto: 'Desenvolvedor',
+		email: 'dev@dev.com.br',
+		cpf: '000.000.000-00',
+		telefone: { ddd: 11, numero: 012345678 },
+		senha: 'batata123',
+		enderecos: [{
+				cep: '00000-000',
+				estado: 'SP',
+				cidade: 'São Paulo',
+				rua: 'Desenvolvedor',
+				numero: '00A',
+				complemento: 'Ap 01B',
+				bairro: 'Vila Desenvolvedor'
+		}],
+		pedidos: [],
+		nivel: 'admin',
+		pgtoPadrao: 'Cartao de Credito',
+}];
+
+Produto.create(produtoSeed)
 	.then((result) => {
 		console.log(`Criou ${result.length} produtos.`);
-		mongoose.connection.close();
 	})
 	.catch((error) => console.log(error));
 
-
- module.exports = seed;
+Usuario.create(usuarioSeed)
+	.then((result) => {
+		console.log(`Criou ${result.length} usuario.`);
+		mongoose.connection.close();
+	})
+	.catch((error) => console.log(error));

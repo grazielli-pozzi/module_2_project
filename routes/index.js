@@ -106,7 +106,7 @@ router.post('/login',  async (req, res) =>{
 
       req.session.currentUser = userCopy;
 
-      res.redirect('/public/menu');
+      res.redirect('/menu');
   } catch(error){
       console.log(error)
   }
@@ -122,19 +122,21 @@ router.post('/signup', async (req, res) =>{
       // if (!isDataValid) {
       //     return;
       // };
-      console.log(telefone);
+
+      //Retira os caracteres especiais 
+      let strTel = telefone.replace(/\D/g, '');
 
       const newUser = new User({
         nomeCompleto,
         email,
         cpf,
-        telefone: {ddd: 11, numero: 94695201},        
+        telefone: {ddd: strTel.substring(0, 2), numero: strTel.substring(2)},        
         senha: await generateEncryptedPassword(senha),
         enderecos: [{cep, estado, cidade, rua, numero, complemento, bairro}],
         nivel: 'comum',
         pgtoPadrao: 'Dinheiro',
       });
-      console.log(newUser);
+      //console.log(newUser);
   
       await newUser.save();
       res.redirect('/login');

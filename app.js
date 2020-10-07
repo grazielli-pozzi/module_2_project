@@ -46,6 +46,23 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 hbs.registerPartials(__dirname + '/views/partials');
 
+//Rodrigo
+const session = require('express-session');
+const connectMongo = require('connect-mongo');
+
+const MongoStore = connectMongo(session);
+
+app.use(session({
+    secret: 'fsdfsdsfsf33242344242dfsdfsfsdfssdfs',
+    saveUnintialized: false,
+    resave: true,
+    rolling: true,
+    cookie: { maxAge: 120000},
+    store: new MongoStore({
+        mongooseConnection: mongoose.connection,
+        ttl: 60*60*24,
+    }),
+}));
 
 
 // default value for title local

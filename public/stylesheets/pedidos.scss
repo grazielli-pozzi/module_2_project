@@ -1,0 +1,28 @@
+.pedidos-container {
+    max-width: 90%;
+    margin: 3% 5%;
+}
+
+.pedido-detalhes {
+    display: flex !important;
+    justify-content: space-between;
+    text-align: justify;
+}
+
+.modal-texto {
+    max-width: 25% !important;
+    margin: 0 0 10px 0;
+}
+
+.borda-cinza {
+    margin-bottom: 10px;
+    padding: 5px 10px;
+    border-bottom: 1px solid #dee2e6;
+    
+}
+
+.cabeca {
+    margin-bottom: 20px;
+    font-weight: 600;
+    font-size: 17px;
+}

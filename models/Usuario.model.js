@@ -17,7 +17,6 @@ const usuarioSchema = new Schema({
 		complemento: { type: String },
 		bairro: { type: String, required: true },
 	}],
-	pedidos: { type: Array, default: [] },
 	nivel: { type: String, enum: ['comum', 'premium', 'admin'], required: true, default: 'comum' },
 	pgtoPadrao: { type: String, enum: ['Cartao de Credito', 'Cartao de Debito', 'Dinheiro'] },
 

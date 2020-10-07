@@ -1,0 +1,74 @@
+{{>nav}}
+<h2 class="menu-titulo">Lanches</h2>
+<div class="menu-container">
+	{{#each lanches}}
+		<div class="card produto-card lanches" style="width: 18rem;">
+  			<img class="card-img-top" src={{this.srcImagem}} alt="Card image cap">
+  			<div class="card-body">
+    			<h5 class="card-title">{{this.nome}}</h5>
+    			<p class="card-text">{{this.descricao}}</p>
+  			</div>
+			<h6>R${{this.preco}}</h6>
+		  	<div class="buttons-container" id="span-parent">
+    			<button class="btn btn-primary card-button" onclick="deleteProduto('{{this._id}}');"><i class="fas fa-minus-circle"></i></button>
+				<span class="{{this._id}}">0</span>
+				<button class="btn btn-primary card-button" onclick="createProduto('{{this._id}}');"><i class="fas fa-plus-circle"></i></button>
+		  </div>
+	</div>
+	{{/each}}
+</div>
+<h2 class="menu-titulo">Bebidas</h2>
+<div class="menu-container">
+	{{#each bebidas}}
+		<div class="card produto-card bebidas" style="width: 18rem;">
+  			<img class="card-img-top" src={{this.srcImagem}} alt="Card image cap">
+  			<div class="card-body">
+    			<h5 class="card-title">{{this.nome}}</h5>
+    			<p class="card-text">{{this.descricao}}</p>
+  			</div>
+			<h6>R${{this.preco}}</h6>
+		  	<div class="buttons-container">
+    			<button class="btn btn-primary card-button" onclick="deleteProduto('{{this._id}}');"><i class="fas fa-minus-circle"></i></button>
+				<span class="{{this._id}}">0</span>
+				<button class="btn btn-primary card-button" onclick="createProduto('{{this._id}}');"><i class="fas fa-plus-circle"></i></button>
+		  </div>
+	</div>
+	{{/each}}
+</div>
+<h2 class="menu-titulo">Entradas</h2>
+<div class="menu-container">
+	{{#each entradas}}
+		<div class="card produto-card entradas" style="width: 18rem;">
+  			<img class="card-img-top" src={{this.srcImagem}} alt="Card image cap">
+  			<div class="card-body">
+    			<h5 class="card-title">{{this.nome}}</h5>
+    			<p class="card-text">{{this.descricao}}</p>
+  			</div>
+			<h6>R${{this.preco}}</h6>
+		  	<div class="buttons-container">
+    			<button class="btn btn-primary card-button" onclick="deleteProduto('{{this._id}}');"><i class="fas fa-minus-circle"></i></button>
+				<span class="{{this._id}}">0</span>
+				<button class="btn btn-primary card-button" onclick="createProduto('{{this._id}}');"><i class="fas fa-plus-circle"></i></button>
+		  </div>
+	</div>
+	{{/each}}
+</div>
+<h2 class="menu-titulo">Adicionais</h2>
+<div class="menu-container">
+	{{#each adicionais}}
+		<div class="card produto-card adicionais" style="width: 18rem;">
+  			<img class="card-img-top" src={{this.srcImagem}} alt="Card image cap">
+  			<div class="card-body">
+    			<h5 class="card-title">{{this.nome}}</h5>
+    			<p class="card-text">{{this.descricao}}</p>
+  			</div>
+			<h6>R${{this.preco}}</h6>
+		  	<div class="buttons-container">
+    			<button class="btn btn-primary card-button" onclick="deleteProduto('{{this._id}}');"><i class="fas fa-minus-circle"></i></button>
+				<span class="{{this._id}}">0</span>
+				<button class="btn btn-primary card-button" onclick="createProduto('{{this._id}}');"><i class="fas fa-plus-circle"></i></button>
+		  </div>
+	</div>
+	{{/each}}
+</div>
+<script src="/javascripts/cart.js"></script>

@@ -11,9 +11,4 @@ router.get('/menu', async (req, res, nxt) => {
 	res.render('public/menu', { lanches, bebidas, entradas, adicionais });
 })
 
-router.get('/menu/add', async (req, res, nxt) => {
-    const produto = await Produto.findById(req.query.id);
-    res.render('public/menu');
-})
-
 module.exports = router;

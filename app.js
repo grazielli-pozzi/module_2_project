@@ -45,7 +45,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 hbs.registerPartials(__dirname + '/views/partials');
-
+hbs.registerHelper('subtotal', (preco, qty) => preco * qty);
+hbs.registerHelper('total', (itens) => {
+    const itensArray = [...itens];
+    let total = 0;
+    itensArray.forEach((elem) => total += elem.preco * elem.quantidade);
+    return total;
+})
 
 
 // default value for title local

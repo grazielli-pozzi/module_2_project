@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const { Schema, model } = mongoose;
 
 const pedidoSchema = new Schema({
+	pedidoID: { type: Number, required: true },
 	usuarioID: { type: Schema.Types.ObjectId, ref: 'usuario', required: true },
 	itens: [{
 		produtoID: { type: Schema.Types.ObjectId, ref: 'produto', required: true },

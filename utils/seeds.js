@@ -307,3 +307,9 @@ Usuario.create(usuarioSeed)
 		mongoose.connection.close();
 	})
 	.catch((error) => console.log(error));
+<<<<<<< HEAD
+=======
+
+
+ module.exports = seed;
+>>>>>>> 85ab5005d67f8cdcb43c7972b0af2abacca3b0bd

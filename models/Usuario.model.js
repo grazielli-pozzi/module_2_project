@@ -10,12 +10,13 @@ const usuarioSchema = new Schema({
 	senha: { type: String, required: true },
 	enderecos: [{
 		cep: { type: String, required: true },
+		estado: { type: String, required: true },
+		cidade: { type: String, required: true },
 		rua: { type: String, required: true },
 		numero: { type: String, required: true }, // String pois há casas com mesmo número mas com A, B, etc no final
 		complemento: { type: String },
-		bairro: { type: String, required: true }
+		bairro: { type: String, required: true },
 	}],
-	pedidos: { type: Array, default: [] },
 	nivel: { type: String, enum: ['comum', 'premium', 'admin'], required: true, default: 'comum' },
 	pgtoPadrao: { type: String, enum: ['Cartao de Credito', 'Cartao de Debito', 'Dinheiro'] },
 

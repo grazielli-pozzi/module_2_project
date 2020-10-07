@@ -1,5 +1,7 @@
 const express = require('express');
 const router  = express.Router();
+const User = require('../models/Usuario.model');
+const  {generateEncryptedPassword, verifyPassword} = require('../utils/passwordManager');
 
 /* GET home page */
 router.get('/', (req, res, next) => {
@@ -43,51 +45,104 @@ router.get('/cart',  (req, res) =>{
 
 })
 
+const verifyLoginData = async (req, res) =>{
+  const {email, senha} = req.body;
 
-// const verifyData = async (req, res) => {
+  if ( !email  || !senha ){
+      const errors = {
+          usernameError: !email ? "Campo Usuário obrigatorio" : undefined,
+          passwordError: !senha ? "Campo password obrigatorio" : undefined,
+      };
 
-//   const {username, password} = req.body;
+      res.render('public/login', errors);
 
-//   if (!username ||  !password ){
-//       const errors = {
-//           usernameError: !username ? "Campo nome de usuário obrigatorio" : undefined,
-//           passwordError: !password ? "Campo password obrigatorio" : undefined,
-//       };
+      return false;
+  }
 
-//       res.render('auth-views/signup', errors);
+  if (senha.length < 6){
+      const errors = {
+          passwordError: "sua senha deve ter no mínimo 6 digitos!",
+      };
+      res.render('public/login', errors);
+      return false;
+  }
 
-//       return false;
-//   }
-//   if (password.length < 6){
-//       const errors = {
-//           passwordError: "sua senha deve ter no mínimo 6 digitos!",
-//       };
-//       res.render('auth-views/signup', errors);
-//       return false;
-//   }
+  const userExists = await User.findOne({ email });
 
-//   // const userCpfExists = await User.find({ cpf });
-//   // const userEmailExists = await User.find({ email });
-//   // if (userEmailExists.length > 0 || userCpfExists.length > 0) {
-//   //     const errors = {
-//   //       emailError: userEmailExists.length > 0 ? 'Email já cadastrado' : undefined,
-//   //       cpfError: userCpfExists.length > 0 ? 'CPF já cadastrado' : undefined,
-//   //     };
+  //console.log(userExists);
+
+  if (!userExists) {
+      res.render('public/login', {errorMessage: 'Usuário os senha incorretos. Tente novamente!'});
+
+      return false;
+  }
+  const passwordOk = await verifyPassword(senha, userExists.senha);
+
+  if (!passwordOk){
+      res.render('public/login', {errorMessage: 'Usuário os senha incorretos. Tente novamente!'});
+
+      return false;
+  }
   
-//   //     res.render('auth-views/signup', errors);
-//   //   }      
-  
-//   const userExists = await User.find({username});
-  
-//   //console.log(userExists);
-  
-//   if (userExists.length > 0){
-//       res.render('auth-views/signup', {errorMessage: "Nome de usuário já cadastrado."});
-//       return false;
-//   }
+  return userExists;
 
-//   return true;
-// };
+};
+
+router.post('/login',  async (req, res) =>{
+  try{
+      const userOK = await verifyLoginData(req, res);
+      
+      if (!userOK){
+          return ;
+      }
+
+      //console.log(userOK);
+
+      const userCopy = JSON.parse(JSON.stringify(userOK));
+
+      delete userCopy.senha;
+
+      console.log(userCopy);
+
+      req.session.currentUser = userCopy;
+
+      res.redirect('/public/menu');
+  } catch(error){
+      console.log(error)
+  }
+});
+
+router.post('/signup', async (req, res) =>{
+  try {
+      const {nomeCompleto, email, cpf, telefone, senha, cep, estado, cidade, rua, numero, complemento, bairro} = req.body;
+      // const isDataValid = await verifyData(req, res);
+  
+      // //console.log(isDataValid);
+  
+      // if (!isDataValid) {
+      //     return;
+      // };
+      console.log(telefone);
+
+      const newUser = new User({
+        nomeCompleto,
+        email,
+        cpf,
+        telefone: {ddd: 11, numero: 94695201},        
+        senha: await generateEncryptedPassword(senha),
+        enderecos: [{cep, estado, cidade, rua, numero, complemento, bairro}],
+        nivel: 'comum',
+        pgtoPadrao: 'Dinheiro',
+      });
+      console.log(newUser);
+  
+      await newUser.save();
+      res.redirect('/login');
+  
+  } catch (error) {
+      console.log(error);
+  }
+  });
 
 //Fim Rodrigo
 

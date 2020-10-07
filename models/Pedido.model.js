@@ -8,6 +8,8 @@ const pedidoSchema = new Schema({
 	itens: [{
 		produtoID: { type: Schema.Types.ObjectId, ref: 'produto', required: true },
 		quantidade: { type: Number, required: true },
+		nome: { type: String, required: true },
+		preco: {type: Number, required: true },
 	   }],
 	observacao: String,
 	pagamento: { type: String, enum: ['Cartao de Credito', 'Cartao de Debito', 'Dinheiro'], required: true },

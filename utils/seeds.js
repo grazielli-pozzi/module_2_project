@@ -290,7 +290,6 @@ const usuarioSeed = [{
 				complemento: 'Ap 01B',
 				bairro: 'Vila Desenvolvedor'
 		}],
-		pedidos: [],
 		nivel: 'admin',
 		pgtoPadrao: 'Cartao de Credito',
 }];

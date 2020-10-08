@@ -11,9 +11,25 @@
         <a class="nav-link" href="/#address">Endereços</a>
       </li>
       {{!-- Podemos usar class="nav-item active" no lugar de class="nav-item" se quisermos tirar o efeito de passar o mouse --}}
+      {{#if nome}}
+      <li id="adjust-items-nav" class="nav-item">
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            <span>{{nome}}</span>
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </div>
+      </li>
+      {{else}}
       <li id="adjust-items-nav" class="nav-item">
         <a class="nav-link" href="/login">Faça o seu pedido</a>
       </li>
+      {{/if}}
     </ul>
   </div>
 </nav>

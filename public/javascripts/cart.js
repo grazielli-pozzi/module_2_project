@@ -6,14 +6,14 @@ window.onload = () => {
 	});
 }
 
-const createProduto = (id) => {
+const createProduto = (id, nome, preco, descricao) => {
 	if (Object.keys(localStorage).includes(id)) {
 		const data = JSON.parse(localStorage.getItem(id));
-		data.qty += 1
+		data.qty += 1;
 		localStorage.setItem(id, JSON.stringify(data));
 		document.getElementsByClassName(`${id}`)[0].textContent = data.qty;
 	} else {
-		const data = { qty: 1 };
+		const data = {nome, preco, descricao, qty: 1};
 		localStorage.setItem(id, JSON.stringify(data));
 		document.getElementsByClassName(`${id}`)[0].textContent = data.qty;
 	}

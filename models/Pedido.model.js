@@ -22,7 +22,7 @@ const pedidoSchema = new Schema({
 		bairro: { type: String, required: true }
 	},
 	previsaoEntrega: { type: String, required: true, default: '1 hora' },
-	status: { type: String, enum: ['Confirmado', 'Preparando', 'Saiu para Entrega', 'Terminado'], required: true }
+	status: { type: String, enum: ['Confirmado', 'Preparando', 'Saiu para Entrega', 'Entregue'], required: true }
 
 }, { timestamps: true });
 

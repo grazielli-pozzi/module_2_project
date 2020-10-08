@@ -36,14 +36,14 @@ router.get('/confirmation',  (req, res) =>{
 
 })
 
-router.get('/cart',  (req, res) =>{
+// router.get('/cart',  (req, res) =>{
 
-  const {sessionExpired} = req.query;
-  //console.log(sessionExpired);
+//   const {sessionExpired} = req.query;
+//   //console.log(sessionExpired);
 
-  res.render('private/cart', {codigoPedido: '000030'});
+//   res.render('private/cart', {codigoPedido: '000030'});
 
-})
+// })
 
 const verifyLoginData = async (req, res) =>{
   const {email, senha} = req.body;

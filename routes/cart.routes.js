@@ -8,7 +8,7 @@ router.get('/menu', async (req, res, nxt) => {
     const bebidas = await Produto.find({ categoria: 'Bebida' });
     const entradas = await Produto.find({ categoria: 'Entradas' });
     const adicionais = await Produto.find({categoria: 'Adicional'});
-	res.render('public/menu', { lanches, bebidas, entradas, adicionais });
+	res.render('public/menu', { lanches, bebidas, entradas, adicionais, nome: req.session.currentUser.nomeCompleto });
 })
 
 module.exports = router;

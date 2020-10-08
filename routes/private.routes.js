@@ -5,19 +5,18 @@ const Usuario = require('../models/Usuario.model');
 const Pedido = require('../models/Pedido.model');
 
 router.get('/cart', (req, res) => {
-    const {sessionExpired} = req.query;
+    if (req.session.currentUser) {
+        res.render('private/cart', {codigoPedido: '000030', nome: req.session.currentUser.nomeCompleto});
+    }
   
-    res.render('private/cart', {codigoPedido: '000030'});
 });
 
 router.get('/pedidos', async (req, res) => {
-    const { sessionExpired } = req.query;
-    console.log(sessionExpired);
-    if (!sessionExpired) {
-        const usuario = await Usuario.find();
-        const pedidos = await Pedido.find({usuarioID: usuario[0]._id});
+    if (req.session.currentUser) {
+        const usuario = await Usuario.findById(req.session.currentUser._id);
+        const pedidos = await Pedido.find({usuarioID: usuario});
         
-        res.render('private/pedidos', {pedidos});
+        res.render('private/pedidos', {pedidos, nome: req.session.currentUser.nomeCompleto});
 
     } else {res.redirect('/'); res.end();}
 });

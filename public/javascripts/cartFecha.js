@@ -34,9 +34,46 @@ window.onload =  () => {
                 </tr>`; 
 
     document.getElementsByClassName('tbody')[0].innerHTML = tagHtml;
+}
+
+const enviaDados = async () => {
+
+    //console.log('preparando dados para enviar');
+    let dadosPedido = {};
+
+    const ids = Object.keys(localStorage);
+    
+    let sumTotal = 0;
+    //let indexId = 0;
+    let arrayItens = [];
+
+	ids.forEach(id => {
+        const thisId = JSON.parse(localStorage.getItem(id));
         
-    // console.log();
-    // console.log();
-    // console.log(thisId['qty']);
+        //let subTotal = ;
+        sumTotal += thisId['qty'] * thisId['preco'];
+
+        if (thisId['qty'] > 0) {
+            arrayItens.push({produtoid: id, quantidade: thisId['qty']});
+        }
+        //indexId ++;
+    });    
+    //console.log(dadosPedido);
+    dadosPedido = {itens: arrayItens, total: sumTotal};
+    console.log(dadosPedido);
+
+    if (sumTotal === 0) {
+        alert('Pedido Vazio, selecione algum produto!')
+        return ;
+    } ;
+
+    try {
+        let dataRet = await axios.post(`/cart`, dadosPedido) 
+    //console.log(dataRet);
+
+        return dataRet.data;
+    } catch (error) {
+        console.log(`Error while getting the list of characters: ${error}`)
+    }
 
 }

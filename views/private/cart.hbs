@@ -47,18 +47,24 @@
         <div class="cart-conf">
             <h3>Endereço</h3>
             <select id="endereco">
-                <option value="1">Rua Castro Alves, 123, Centro - Salvador - BA</option>
-                <option value="2">Rua Amaralina, 232 - Nova Esperança - Itabuna - BA</option>
+                {{#if data}}
+                    {{#each data}}
+                        <option value="1">{{this.enderecos.[0].rua}},{{this.enderecos.[0].numero}} - {{this.enderecos.[0].complemento}} - {{this.enderecos.[0].cidade}}</option>   
+                    {{/each}}
+                {{/if}}                
+                {{!-- <option value="1">Rua Castro Alves, 123, Centro - Salvador - BA</option>
+                <option value="2">Rua Amaralina, 232 - Nova Esperança - Itabuna - BA</option> --}}
             </select>
 
             <h3>Forma de Pagamento</h3>
+
             <select id="formaPgto">
                 <option value="1">Dinheiro</option>
-                <option value="2">Cartão Crédito</option>
-                <option value="2">Cartão Débito</option>
+                {{!-- <option value="2">Cartão Crédito</option>
+                <option value="2">Cartão Débito</option> --}}
             </select>
 
-            <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Finalizar Pedido</button>
+            <button class="btn btn-lg btn-primary btn-block btn-signin" type="button" onclick="enviaDados()">Finalizar Pedido</button>
         </div>
     </div>
 </form>

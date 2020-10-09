@@ -1,3 +1,5 @@
+{{> nav }}
+
 <form class="container" action='/cart' method="post">
     <h1>Carrinho</h1>
     <div class="cart-container" id="cart-container">
@@ -12,11 +14,10 @@
                 <th scope="col">Sub-Total</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr class='product'>
+            <tbody class='tbody'>
+                {{!-- <tr class='product'>
                     <th scope="row">1</th>
                     <td>Produto X</td>
-                    {{!-- <td><button id='removeItem' onclick="recalculaValor('-')">-</button>1<button id='addItem' onclick="recalculaValor('+')">+</button></td> --}}
                     <td class="quantity">
                         <input class='quantity-value' type="number" value="1" min="0"  onchange="recalculaValor()" />
                     </td>
@@ -38,7 +39,7 @@
                     <td></td>
                     <th scope="row">Total Pedido</th>
                     <th scope="row" id='total-value'>$<span>32.5</span></th>
-                </tr>
+                </tr> --}}
             </tbody>
             </table>
             <a href="menu"><button class="btn btn-lg btn-primary btn-block btn-signin" type="button">Adicionar Item</button></a>
@@ -46,18 +47,27 @@
         <div class="cart-conf">
             <h3>Endereço</h3>
             <select id="endereco">
-                <option value="1">Rua Castro Alves, 123, Centro - Salvador - BA</option>
-                <option value="2">Rua Amaralina, 232 - Nova Esperança - Itabuna - BA</option>
+                {{#if data}}
+                    {{#each data}}
+                        <option value="1">{{this.enderecos.[0].rua}},{{this.enderecos.[0].numero}} - {{this.enderecos.[0].complemento}} - {{this.enderecos.[0].cidade}}</option>   
+                    {{/each}}
+                {{/if}}                
+                {{!-- <option value="1">Rua Castro Alves, 123, Centro - Salvador - BA</option>
+                <option value="2">Rua Amaralina, 232 - Nova Esperança - Itabuna - BA</option> --}}
             </select>
 
             <h3>Forma de Pagamento</h3>
+
             <select id="formaPgto">
                 <option value="1">Dinheiro</option>
-                <option value="2">Cartão Crédito</option>
-                <option value="2">Cartão Débito</option>
+                {{!-- <option value="2">Cartão Crédito</option>
+                <option value="2">Cartão Débito</option> --}}
             </select>
 
-            <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Finalizar Pedido</button>
+            <button class="btn btn-lg btn-primary btn-block btn-signin" type="button" onclick="enviaDados()">Finalizar Pedido</button>
         </div>
     </div>
 </form>
+
+<script src="/javascripts/cartFecha.js"></script>
+{{!-- <script src="/javascripts/cart.js"></script> --}}

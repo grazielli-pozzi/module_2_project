@@ -19,13 +19,13 @@ router.get('/menu', async (req, res, nxt) => {
     }
 });
 
-router.use((req, res, next)=> {
+/* router.use((req, res, next)=> {
     if(!req.session.currentUser){
         res.redirect('/login?sessionExpired=true');
         return ;
     }
     next();
-});
+}); */
 
 router.get('/cart', async (req, res, nxt) => {
     try {

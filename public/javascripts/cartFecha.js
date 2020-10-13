@@ -73,6 +73,7 @@ const enviaDados = async () => {
 
         //console.log(dataRet.request.responseURL);
         //deleta todos os itens do carrinho
+        localStorage.clear();
         
         window.location=dataRet.request.responseURL;
 

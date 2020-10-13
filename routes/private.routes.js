@@ -21,4 +21,8 @@ router.get('/pedidos', async (req, res) => {
     } else {res.redirect('/'); res.end();}
 });
 
+router.get('/dashboard', (req, res, next) => {
+    res.render('private/perfil');
+});
+
 module.exports = router;

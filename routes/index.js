@@ -11,10 +11,6 @@ router.get('/', (req, res, next) => {
   }
 });
 
-router.get('/dashboard', (req, res, next) => {
-  res.render('private/perfil');
-});
-
 module.exports = router;
 
 

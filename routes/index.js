@@ -27,14 +27,21 @@ router.get('/signup', (req, res) =>{
   res.render('public/signup');
 });
 
-router.get('/confirmation',  (req, res) =>{
+router.get('/confirmation/:id', async (req, res) =>{
 
-  const {sessionExpired} = req.query;
-  //console.log(sessionExpired);
+  try {
+    const {id} = req.params;
 
-  res.render('private/confirmation', {codigoPedido: '000030'});
+    const {sessionExpired} = req.query;
+    //console.log(sessionExpired);
+  
+    res.render('private/confirmation', {codigoPedido: id});
+    
+  } catch (error) {
+    console.log(error);
+  };
 
-})
+});
 
 // router.get('/cart',  (req, res) =>{
 

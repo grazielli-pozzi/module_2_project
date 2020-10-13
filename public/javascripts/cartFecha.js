@@ -54,13 +54,13 @@ const enviaDados = async () => {
         sumTotal += thisId['qty'] * thisId['preco'];
 
         if (thisId['qty'] > 0) {
-            arrayItens.push({produtoid: id, quantidade: thisId['qty']});
+            arrayItens.push({produtoID: id, quantidade: thisId['qty']});
         }
         //indexId ++;
     });    
     //console.log(dadosPedido);
     dadosPedido = {itens: arrayItens, total: sumTotal};
-    console.log(dadosPedido);
+    //console.log(dadosPedido);
 
     if (sumTotal === 0) {
         alert('Pedido Vazio, selecione algum produto!')
@@ -68,12 +68,19 @@ const enviaDados = async () => {
     } ;
 
     try {
-        let dataRet = await axios.post(`/cart`, dadosPedido) 
+        console.log('entrou no axios');
+        let dataRet = await axios.post(`/cart`, dadosPedido)
+
+        //console.log(dataRet.request.responseURL);
+        //deleta todos os itens do carrinho
+        
+        window.location=dataRet.request.responseURL;
+
     //console.log(dataRet);
 
-        return dataRet.data;
+        //return dataRet.data;
     } catch (error) {
-        console.log(`Error while getting the list of characters: ${error}`)
+        console.log(error);
     }
 
 }

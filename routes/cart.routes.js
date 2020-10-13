@@ -2,6 +2,7 @@ const express = require('express');
 const router  = express.Router();
 
 const Produto = require('../models/Produto.model');
+const Usuario = require('../models/Usuario.model');
 
 router.get('/menu', async (req, res, nxt) => {
     if (req.session.currentUser) {
@@ -19,13 +20,13 @@ router.get('/menu', async (req, res, nxt) => {
     }
 });
 
-router.use((req, res, next)=> {
+/* router.use((req, res, next)=> {
     if(!req.session.currentUser){
         res.redirect('/login?sessionExpired=true');
         return ;
     }
     next();
-});
+}); */
 
 router.get('/cart', async (req, res, nxt) => {
     try {

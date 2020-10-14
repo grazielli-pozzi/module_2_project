@@ -23,7 +23,7 @@ router.get('/perfil', async (req, res, next) => {
     if (!sessionExpired){
   
       //console.log('entrou');
-      const data = await User.findOne({email: req.session.currentUser.email});
+      const data = await Usuario.findOne({email: req.session.currentUser.email});
       //console.log(data);
   
       res.render('private/perfil', {data});

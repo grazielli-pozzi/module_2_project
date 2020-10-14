@@ -52,7 +52,7 @@ hbs.registerHelper('total', (itens) => {
     let total = 0;
     itensArray.forEach((elem) => total += elem.preco * elem.quantidade);
     return total;
-})
+});
 
 const session = require('express-session');
 const connectMongo = require('connect-mongo');
@@ -80,6 +80,15 @@ const auth = require('./routes/auth.routes');
 const private = require('./routes/private.routes');
 
 app.use('/', index);
+
+app.use((req, res, next) => {
+    if(!req.session.currentUser){
+        res.redirect('/login?sessionExpired=true');
+        return;
+    }
+    next();
+});
+
 app.use('/', cart);
 app.use('/', auth);
 app.use('/', private);

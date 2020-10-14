@@ -97,8 +97,8 @@ router.post('/cart', async (req, res, nxt) => {
                 status: 'Confirmado',
             });
             
-            console.log('-----passou pela criação do pedido-----');
-            console.log(newPedido);
+            //console.log('-----passou pela criação do pedido-----');
+            //console.log(newPedido);
         
         //};
         

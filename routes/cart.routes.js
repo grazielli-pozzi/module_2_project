@@ -13,7 +13,7 @@ router.get('/cart', async (req, res, nxt) => {
         //console.log(data);
 
         //response.render('dashboard', { data, loggedUser: request.session.currentUser });
-        res.render('private/cart', {data});
+        res.render('private/cart', {data, nome: req.session.currentUser.nomeCompleto});
     } catch (error) {
         console.log(error);
     }
@@ -93,11 +93,8 @@ router.post('/cart', async (req, res, nxt) => {
 router.get('/confirmation',  (req, res) =>{
 
     const {sessionExpired} = req.query;
-    //console.log(sessionExpired);
-  
-    res.render('private/confirmation', {codigoPedido: '000030'});
-  
-  });
+    sessionExpired ? res.redirect('/login') : res.render('private/confirmation', {nome: req.session.currentUser.nomeCompleto});
+});
   
 
 module.exports = router;

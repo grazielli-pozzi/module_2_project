@@ -26,7 +26,7 @@ router.get('/perfil', async (req, res, next) => {
       const data = await Usuario.findOne({email: req.session.currentUser.email});
       //console.log(data);
   
-      res.render('private/perfil', {data});
+      res.render('private/perfil', {data, nome: req.session.currentUser.nomeCompleto});
     }else {
       res.render('public/login', {sessionExpired});
     };

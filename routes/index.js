@@ -30,9 +30,12 @@ router.get('/menu', async (req, res, nxt) => {
 });
 
 router.get('/login',  (req, res) => {
-
-  const {sessionExpired} = req.query;
-  res.render('public/login', {sessionExpired});
+  if (req.session.currentUser) {
+    res.redirect('/menu');
+  } else {
+    const {sessionExpired} = req.query;
+    res.render('public/login', {sessionExpired});
+  }
 });
 
 router.post('/login',  async (req, res) =>{
@@ -60,8 +63,7 @@ router.post('/login',  async (req, res) =>{
 });
 
 router.get('/signup', (req, res) =>{
-
-  res.render('public/signup');
+	req.session.currentUser ? res.redirect('/menu') : res.render('public/signup');
 });
 
 

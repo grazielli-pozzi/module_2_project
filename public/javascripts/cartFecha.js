@@ -54,7 +54,8 @@ const enviaDados = async () => {
         sumTotal += thisId['qty'] * thisId['preco'];
 
         if (thisId['qty'] > 0) {
-            arrayItens.push({produtoID: id, quantidade: thisId['qty']});
+            //Rodrigo - 13/10 - Acrescentado nome e preco
+            arrayItens.push({produtoID: id, quantidade: thisId['qty'], nome: thisId['nome'], preco: thisId['preco']});
         }
         //indexId ++;
     });    
@@ -69,12 +70,12 @@ const enviaDados = async () => {
 
     try {
         console.log('entrou no axios');
-        let dataRet = await axios.post(`/cart`, dadosPedido)
+        let dataRet = await axios.post(`/cart`, dadosPedido);
 
         //console.log(dataRet.request.responseURL);
         //deleta todos os itens do carrinho
         localStorage.clear();
-        
+
         window.location=dataRet.request.responseURL;
 
     //console.log(dataRet);

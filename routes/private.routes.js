@@ -14,8 +14,48 @@ router.get('/pedidos', async (req, res) => {
     } else {res.redirect('/'); res.end();}
 });
 
-router.get('/dashboard', (req, res, next) => {
-    res.render('private/perfil');
-});
+router.get('/perfil', async (req, res, next) => {
+
+    const {sessionExpired} = req.query;
+  
+    //console.log(sessionExpired);
+  
+    if (!sessionExpired){
+  
+      //console.log('entrou');
+      const data = await User.findOne({email: req.session.currentUser.email});
+      //console.log(data);
+  
+      res.render('private/perfil', {data});
+    }else {
+      res.render('public/login', {sessionExpired});
+    };
+  
+  });
+  
+  router.post('/perfil', async (req, res, next) => {
+  
+    try {
+      const {nomeCompleto, email, cpf, telefone, senha, cep, estado, cidade, rua, numero, complemento, bairro} = req.body;
+  
+      let strTel = telefone.replace(/\D/g, '');
+  
+      await User.findByIdAndUpdate(req.session.currentUser._id, {$set: {nomeCompleto,
+        email: req.session.currentUser.email,
+        cpf,
+        telefone: {ddd: strTel.substring(0, 2), numero: strTel.substring(2)},        
+        senha: await generateEncryptedPassword(senha),
+        enderecos: [{cep, estado, cidade, rua, numero, complemento, bairro}],
+        nivel: 'comum',
+        pgtoPadrao: 'Dinheiro'} });
+  
+      res.redirect('/menu');
+  
+  
+    } catch (error) {
+      console.log(error);
+    };
+  
+  });
 
 module.exports = router;

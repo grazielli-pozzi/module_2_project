@@ -1,7 +1,7 @@
 {{> nav }}
 
-<div class="container">
-    <div class="card card-container">
+<div class="containerNew">
+    <div class="cardNew card-containerNew">
         <!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->
         {{!-- <p id="profile-name" class="profile-name-card"></p> --}}
         <form action='/signup' method="post" class="form-signin">
@@ -11,7 +11,7 @@
             <input type="text" name="cpf" id="cpf" class="form-control" onkeypress="$(this).mask('000.000.000-00');" placeholder="CPF" required>
             <input type="text" name="telefone" id="telefone" class="form-control" onkeypress="$(this).mask('(00) 00000-0000')" placeholder="Telefone" required>
             <input type="password" name="senha" id="senha" class="form-control" placeholder="Senha" required>
-            {{!-- <div class="card card-container-endereco"> --}}
+            {{!-- <div class="cardNew card-container-endereco"> --}}
                 <input type="text" name="cep" id="cep" class="form-control" onkeypress="$(this).mask('00.000-000')" onblur="pesquisacep(this.value);" placeholder="Cep" required>
                 <input type="text" name="rua" id="rua" class="form-control" maxlength="50"  placeholder="Rua" required>
                 <input type="text" name="numero" id="numero" class="form-control" maxlength="10"  placeholder="Número" required>
@@ -26,7 +26,7 @@
                     <span>{{errorMessage}}</span>
                 </div>
             {{/if}}            
-            <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Cadastrar</button>
+            <button class="btnNew btn-lg btn-primary btn-block btn-signin" type="submit">Cadastrar</button>
         </form><!-- /form -->
         <a href="/login" class="forgot-password">Entrar</a>
     </div><!-- /card-container -->

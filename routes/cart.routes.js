@@ -3,6 +3,7 @@ const router  = express.Router();
 
 const Produto = require('../models/Produto.model');
 const Usuario = require('../models/Usuario.model');
+const Pedido = require('../models/Pedido.model');
 
 router.get('/cart', async (req, res, nxt) => {
     try {
@@ -90,11 +91,20 @@ router.post('/cart', async (req, res, nxt) => {
 
 });
 
-router.get('/confirmation',  (req, res) =>{
+router.get('/confirmation/:id', async (req, res) =>{
 
-    const {sessionExpired} = req.query;
-    sessionExpired ? res.redirect('/login') : res.render('private/confirmation', {nome: req.session.currentUser.nomeCompleto});
-});
+    try {
+		const {sessionExpired} = req.query;
+		if (sessionExpired) { res.redirect('/login') }
+		const {id} = req.params;
+    
+		res.render('private/confirmation', {codigoPedido: id, nome: req.session.currentUser.nomeCompleto});
+      
+    } catch (error) {
+		console.log(error);
+    };
+  
+  });
   
 
 module.exports = router;

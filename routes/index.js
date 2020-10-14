@@ -1,7 +1,9 @@
 const express = require('express');
 const router  = express.Router();
 const Produto = require('../models/Produto.model');
+const Usuario = require('../models/Usuario.model');
 const verifyLoginData = require('../utils/loginManager');
+const { generateEncryptedPassword } = require('../utils/passwordManager');
 
 /* GET home page */
 router.get('/', (req, res, next) => {
@@ -66,6 +68,32 @@ router.get('/signup', (req, res) =>{
 	req.session.currentUser ? res.redirect('/menu') : res.render('public/signup');
 });
 
+router.post('/signup', async (req, res) =>{
+    try {
+        const {nomeCompleto, email, cpf, telefone, senha, cep, estado, cidade, rua, numero, complemento, bairro} = req.body;
+  
+        //Retira os caracteres especiais 
+        let strTel = telefone.replace(/\D/g, '');
+  
+        const newUser = new Usuario({
+          nomeCompleto,
+          email,
+          cpf,
+          telefone: {ddd: strTel.substring(0, 2), numero: strTel.substring(2)},        
+          senha: await generateEncryptedPassword(senha),
+          enderecos: [{cep, estado, cidade, rua, numero, complemento, bairro}],
+          nivel: 'comum',
+          pgtoPadrao: 'Dinheiro',
+        });
+        console.log(newUser);
+    
+        await newUser.save();
+        res.redirect('/login');
+    
+    } catch (error) {
+        console.log(error);
+    }
+});
 
 module.exports = router;
 

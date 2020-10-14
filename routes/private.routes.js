@@ -3,6 +3,7 @@ const router  = express.Router();
 
 const Usuario = require('../models/Usuario.model');
 const Pedido = require('../models/Pedido.model');
+const { generateEncryptedPassword } = require('../utils/passwordManager');
 
 router.get('/pedidos', async (req, res) => {
     if (req.session.currentUser) {
@@ -40,7 +41,7 @@ router.get('/perfil', async (req, res, next) => {
   
       let strTel = telefone.replace(/\D/g, '');
   
-      await User.findByIdAndUpdate(req.session.currentUser._id, {$set: {nomeCompleto,
+      await Usuario.findByIdAndUpdate(req.session.currentUser._id, {$set: {nomeCompleto,
         email: req.session.currentUser.email,
         cpf,
         telefone: {ddd: strTel.substring(0, 2), numero: strTel.substring(2)},        

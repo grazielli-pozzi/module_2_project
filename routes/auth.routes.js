@@ -3,17 +3,6 @@ const router  = express.Router();
 const User = require('../models/Usuario.model');
 const  {generateEncryptedPassword, verifyPassword} = require('../utils/passwordManager');
 
-router.get('/login',  (req, res) => {
-
-    const {sessionExpired} = req.query;
-    res.render('public/login', {sessionExpired});
-});
-  
-  router.get('/signup', (req, res) =>{
-  
-    res.render('public/signup');
-  });
-  
   const verifyLoginData = async (req, res) =>{
     const {email, senha} = req.body;
   

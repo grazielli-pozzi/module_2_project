@@ -1,8 +1,8 @@
 {{> nav }}
 
-<form class="container" action='/cart' method="post">
+<form class="containerNew " action='/cart' method="post">
     <h1>Carrinho</h1>
-    <div class="cart-container" id="cart-container">
+    <div class="cart-container " id="cart-container ">
         <div class="cart-info">
             <table class="table table-striped">
             <thead>
@@ -15,31 +15,7 @@
                 </tr>
             </thead>
             <tbody class='tbody'>
-                {{!-- <tr class='product'>
-                    <th scope="row">1</th>
-                    <td>Produto X</td>
-                    <td class="quantity">
-                        <input class='quantity-value' type="number" value="1" min="0"  onchange="recalculaValor()" />
-                    </td>
-                    <td class="price">$<span>12.5</span></td>
-                    <td class="subtotal">$<span>12.5</span></td>
-                </tr>
-                <tr class='product'>
-                    <th scope="row">2</th>
-                    <td>Produto B</td>
-                    <td class="quantity">
-                        <input class='quantity-value' type="number" value="2" min="0"  onchange="recalculaValor()" />
-                    </td>
-                    <td class="price">$<span>10</span></td>
-                    <td class="subtotal">$<span>20</span></td>
-                </tr>
-                <tr>
-                    <td></th>
-                    <td></td>
-                    <td></td>
-                    <th scope="row">Total Pedido</th>
-                    <th scope="row" id='total-value'>$<span>32.5</span></th>
-                </tr> --}}
+                {{!-- vai gerar os itens no cartfecha.js --}}
             </tbody>
             </table>
             <a href="menu"><button class="btn btn-lg btn-primary btn-block btn-signin" type="button">Adicionar Item</button></a>

@@ -70,17 +70,17 @@ router.post('/cart', async (req, res, nxt) => {
             let nrNextPedido = 0;
     
             if (!result[0]){
-                console.log('entrou no 1');
+                //console.log('entrou no 1');
                 nrNextPedido = 1;
                 
             }else {
                 //console.log(result[0]);
                 nrNextPedido = result[0].pedidoID + 1;
-                console.log('entrou no 2');
+                //console.log('entrou no 2');
             }
             //console.log(typeof nrPedido);
             
-            console.log('proximo pedido : '+nrNextPedido);
+            //console.log('proximo pedido : '+nrNextPedido);
     
             // const {nomeCompleto, email, cpf, telefone, senha, cep, estado, cidade, rua, numero, complemento, bairro} = req.body;
         

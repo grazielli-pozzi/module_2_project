@@ -8,51 +8,51 @@ router.get('/', (req, res, next) => {
   res.render('public/index');
 });
 
-//Rodrigo - 13/10 - Mudei rota
-router.get('/perfil', async (req, res, next) => {
+// //Rodrigo - 13/10 - Mudei rota
+// router.get('/perfil', async (req, res, next) => {
 
-  const {sessionExpired} = req.query;
+//   const {sessionExpired} = req.query;
 
-  //console.log(sessionExpired);
+//   //console.log(sessionExpired);
 
-  if (!sessionExpired){
+//   if (!sessionExpired){
 
-    //console.log('entrou');
-    const data = await User.findOne({email: req.session.currentUser.email});
-    //console.log(data);
+//     //console.log('entrou');
+//     const data = await User.findOne({email: req.session.currentUser.email});
+//     //console.log(data);
 
-    res.render('private/perfil', {data});
-  }else {
-    res.render('public/login', {sessionExpired});
-  };
+//     res.render('private/perfil', {data});
+//   }else {
+//     res.render('public/login', {sessionExpired});
+//   };
 
-});
+// });
 
-router.post('/perfil', async (req, res, next) => {
+// router.post('/perfil', async (req, res, next) => {
 
-  try {
-    const {nomeCompleto, email, cpf, telefone, senha, cep, estado, cidade, rua, numero, complemento, bairro} = req.body;
+//   try {
+//     const {nomeCompleto, email, cpf, telefone, senha, cep, estado, cidade, rua, numero, complemento, bairro} = req.body;
 
-    let strTel = telefone.replace(/\D/g, '');
+//     let strTel = telefone.replace(/\D/g, '');
 
-    await User.findByIdAndUpdate(req.session.currentUser._id, {$set: {nomeCompleto,
-      email: req.session.currentUser.email,
-      cpf,
-      telefone: {ddd: strTel.substring(0, 2), numero: strTel.substring(2)},        
-      senha: await generateEncryptedPassword(senha),
-      enderecos: [{cep, estado, cidade, rua, numero, complemento, bairro}],
-      nivel: 'comum',
-      pgtoPadrao: 'Dinheiro'} });
+//     await User.findByIdAndUpdate(req.session.currentUser._id, {$set: {nomeCompleto,
+//       email: req.session.currentUser.email,
+//       cpf,
+//       telefone: {ddd: strTel.substring(0, 2), numero: strTel.substring(2)},        
+//       senha: await generateEncryptedPassword(senha),
+//       enderecos: [{cep, estado, cidade, rua, numero, complemento, bairro}],
+//       nivel: 'comum',
+//       pgtoPadrao: 'Dinheiro'} });
 
-    res.redirect('/menu');
+//     res.redirect('/menu');
 
 
-  } catch (error) {
-    console.log(error);
-  };
+//   } catch (error) {
+//     console.log(error);
+//   };
 
-});
-// Fim 13/10
+// });
+// // Fim 13/10
 
 //Rodrigo - 03/10
 router.get('/login',  (req, res) =>{
@@ -68,21 +68,6 @@ router.get('/signup', (req, res) =>{
   res.render('public/signup');
 });
 
-router.get('/confirmation/:id', async (req, res) =>{
-
-  try {
-    const {id} = req.params;
-
-    const {sessionExpired} = req.query;
-    //console.log(sessionExpired);
-  
-    res.render('private/confirmation', {codigoPedido: id});
-    
-  } catch (error) {
-    console.log(error);
-  };
-
-});
 
 // router.get('/cart',  (req, res) =>{
 

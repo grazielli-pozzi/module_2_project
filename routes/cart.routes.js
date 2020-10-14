@@ -83,7 +83,7 @@ router.post('/cart', async (req, res, nxt) => {
         await newPedido.save();
         
         //return {nrNextPedido};
-        res.redirect(`confirmation/${nrNextPedido}`);
+        res.redirect(`confirmation?id=${nrNextPedido}`);
 
     } catch (error) {
         console.log(error);
@@ -91,12 +91,12 @@ router.post('/cart', async (req, res, nxt) => {
 
 });
 
-router.get('/confirmation/:id', async (req, res) =>{
+router.get('/confirmation', async (req, res) =>{
 
     try {
 		const {sessionExpired} = req.query;
 		if (sessionExpired) { res.redirect('/login') }
-		const {id} = req.params;
+		const {id} = req.query;
     
 		res.render('private/confirmation', {codigoPedido: id, nome: req.session.currentUser.nomeCompleto});
       

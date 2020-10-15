@@ -11,7 +11,7 @@ const path = require('path');
 
 
 mongoose
-    .connect('mongodb://localhost/burguer-expresso', { useNewUrlParser: true })
+    .connect('mongodb://localhost/burguer-expresso', { useNewUrlParser: true, useUnifiedTopology: true })
     .then((x) => {
         console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`);
     })
@@ -46,17 +46,49 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 hbs.registerPartials(__dirname + '/views/partials');
 
+hbs.registerHelper('subtotal', (preco, qty) => preco * qty);
+hbs.registerHelper('total', (itens) => {
+    const itensArray = [...itens];
+    let total = 0;
+    itensArray.forEach((elem) => total += elem.preco * elem.quantidade);
+    return total;
+});
 
+const session = require('express-session');
+const connectMongo = require('connect-mongo');
+
+const MongoStore = connectMongo(session);
+
+app.use(session({
+    secret: 'fsdfsdsfsf33242344242dfsdfsfsdfssdfs',
+    saveUnintialized: false,
+    resave: true,
+    rolling: true,
+    cookie: { maxAge: 240000},
+    store: new MongoStore({
+        mongooseConnection: mongoose.connection,
+        ttl: 60*60*24,
+    }),
+}));
 
 // default value for title local
-app.locals.title = 'Express - Generated with IronGenerator';
-
-
-const perfil = require('./routes/index')
+app.locals.title = 'Burguer Expresso';
 
 const index = require('./routes/index');
+const cart = require('./routes/cart.routes');
+const private = require('./routes/private.routes');
 
 app.use('/', index);
 
+app.use((req, res, next) => {
+    if(!req.session.currentUser){
+        res.redirect('/login?sessionExpired=true');
+        return;
+    }
+    next();
+});
+
+app.use('/', cart);
+app.use('/', private);
 
 module.exports = app;

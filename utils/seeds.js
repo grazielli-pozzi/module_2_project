@@ -273,6 +273,7 @@ const produtoSeed = [
 	},
 
 ];
+
 Produto.create(produtoSeed)
 	.then((result) => {
 		console.log(`Criou ${result.length} produtos.`);

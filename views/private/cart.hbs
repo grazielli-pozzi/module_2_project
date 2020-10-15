@@ -1,0 +1,48 @@
+{{> nav }}
+
+<form class="containerNew " action='/cart' method="post">
+    <h1>Carrinho</h1>
+    <div class="cart-container " id="cart-container ">
+        <div class="cart-info">
+            <table class="table table-striped">
+            <thead>
+                <tr>
+                <th scope="col">#</th>
+                <th scope="col">Descrição</th>
+                <th scope="col">Quantidade</th>
+                <th scope="col">Valor Unitário</th>
+                <th scope="col">Sub-Total</th>
+                </tr>
+            </thead>
+            <tbody class='tbody'>
+                {{!-- vai gerar os itens no cartfecha.js --}}
+            </tbody>
+            </table>
+            <a href="menu"><button class="btnNew btn-lg btn-primary btn-block btn-signin" type="button">Adicionar Item</button></a>
+        </div>
+        <div class="cart-conf">
+            <h3>Endereço</h3>
+            <select id="endereco">
+                {{#if data}}
+                    {{#each data}}
+                        <option value="1">{{this.enderecos.[0].rua}},{{this.enderecos.[0].numero}} - {{this.enderecos.[0].complemento}} - {{this.enderecos.[0].cidade}}</option>   
+                    {{/each}}
+                {{/if}}                
+                {{!-- <option value="1">Rua Castro Alves, 123, Centro - Salvador - BA</option>
+                <option value="2">Rua Amaralina, 232 - Nova Esperança - Itabuna - BA</option> --}}
+            </select>
+
+            <h3>Forma de Pagamento</h3>
+
+            <select id="formaPgto">
+                <option value="1">Dinheiro</option>
+                {{!-- <option value="2">Cartão Crédito</option>
+                <option value="2">Cartão Débito</option> --}}
+            </select>
+
+            <button class="btnNew btn-lg btn-primary btn-block btn-signin" type="button" onclick="enviaDados()">Finalizar Pedido</button>
+        </div>
+    </div>
+</form>
+
+<script src="/javascripts/cartFecha.js"></script>

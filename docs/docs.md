@@ -6,7 +6,7 @@ Utilizamos a biblioteca do npm [ironhack_generator](https://www.npmjs.com/packag
 criando os arquivos básicos com o setup inicial para o desenvolvimento de uma aplicação
 Full-Stack SSR.
 
-A Aplicação utiliza como base os frameworks populares [Express](https://www.npmjs.com/package/express), [Bootstrap](https://getbootstrap.com) 
+A aplicação utiliza como base os frameworks populares [Express](https://www.npmjs.com/package/express), [Bootstrap](https://getbootstrap.com) 
 e [Sass](https://sass-lang.com) para auxiliar no desenvolvimento backend e front end, possuindo as seguintes dependências (também disponíveis
 no [manifesto](../package.json)):
 

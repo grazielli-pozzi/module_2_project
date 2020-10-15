@@ -12,7 +12,7 @@ router.get('/pedidos', async (req, res) => {
         
         res.render('private/pedidos', {pedidos, nome: req.session.currentUser.nomeCompleto});
 
-    } else {res.redirect('/'); res.end();}
+    } else {res.redirect('/');}
 });
 
 router.get('/perfil', async (req, res, next) => {

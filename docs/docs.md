@@ -7,7 +7,7 @@ criando os arquivos básicos com o setup inicial para o desenvolvimento de uma a
 Full-Stack SSR.
 
 A aplicação utiliza como base os frameworks populares [Express](https://www.npmjs.com/package/express), [Bootstrap](https://getbootstrap.com) 
-e [Sass](https://sass-lang.com) para auxiliar no desenvolvimento backend e front end, possuindo as seguintes dependências (também disponíveis
+e [Sass](https://sass-lang.com) para auxiliar no desenvolvimento backend e frontend, possuindo as seguintes dependências (também disponíveis
 no [manifesto](../package.json)):
 
 - [bcryptjs](https://www.npmjs.com/package/bcryptjs)

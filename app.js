@@ -60,7 +60,7 @@ const connectMongo = require('connect-mongo');
 const MongoStore = connectMongo(session);
 
 app.use(session({
-    secret: 'fsdfsdsfsf33242344242dfsdfsfsdfssdfs',
+    secret: process.env.SECRET,
     saveUnintialized: false,
     resave: true,
     rolling: true,

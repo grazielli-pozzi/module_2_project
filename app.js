@@ -76,7 +76,6 @@ app.locals.title = 'Burguer Expresso';
 
 const index = require('./routes/index');
 const cart = require('./routes/cart.routes');
-const auth = require('./routes/auth.routes');
 const private = require('./routes/private.routes');
 
 app.use('/', index);
@@ -90,7 +89,6 @@ app.use((req, res, next) => {
 });
 
 app.use('/', cart);
-app.use('/', auth);
 app.use('/', private);
 
 module.exports = app;

@@ -7,11 +7,15 @@ a {
 }
 
 #adjust-items-nav {
-  padding: 0 55px;
+  padding: 0 70px;
 }
 
-.adjust-carousel {
-  padding: 20px 0;
+.carousel-item {
+  height: 90vh;
+}
+
+.active {
+  height: 90vh;
 }
 
 .adjust-footer {
@@ -23,14 +27,31 @@ a {
   padding: 50px 450px;
 }
 
+.navbar {
+  height: 120px;
+}
+
+#navbarNav {
+  margin-left: 34%;
+  .fa-shopping-cart {
+    color: #6c757d;
+    margin-top: 11px;
+  }
+}
+
+#address {
+  background-color: gray;
+  .adjust-footer {
+    margin-top: 14px;
+    color: white;
+  }
+}
+
 // Danny (cart) - 14/10
 
 .menu-titulo {
-  padding-top: 50px;
-  padding: 50px 10px 20px 10px;
-  border-bottom: 2px solid lightgray;
-  margin-left: 5.35vw;
-  max-width: 64.5%;
+  text-align: center;
+  padding: 20px 0;
 }
 
 .menu-container {
@@ -288,6 +309,7 @@ a {
 .modal-texto {
   max-width: 25% !important;
   margin: 0 0 10px 0;
+  
 }
 
 .borda-cinza {

@@ -1,5 +1,6 @@
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: black !important;
 }
 
 a {
@@ -12,6 +13,12 @@ a {
 
 .carousel-item {
   height: 90vh;
+}
+
+.carousel-container {
+  width: 60%;
+  margin-left: 20%;
+  margin-top: 50px;
 }
 
 .active {

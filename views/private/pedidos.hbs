@@ -21,10 +21,10 @@
 					<td>{{this.status}}</td>
 					<td>{{this.itens.length}}</td>
 					<td><button type="button" class="btn btn-primary" data-toggle="modal"
-							data-target="#detalhes">Detalhes</button></td>
+							data-target="#detalhes-{{this.pedidoID}}">Detalhes</button></td>
 					<td><button type="button" class="btn btn-primary">Pedir Novamente</button></td>
 				</tr>
-				<div class="modal fade" id="detalhes" tabindex="-1" aria-labelledby="detalhes" aria-hidden="true">
+				<div class="modal fade" id="detalhes-{{this.pedidoID}}" tabindex="-1" aria-labelledby="detalhes" aria-hidden="true">
 					<div class="modal-dialog modal-xl modal-dialog-centered">
 						<div class="modal-content">
 							<div class="modal-header">

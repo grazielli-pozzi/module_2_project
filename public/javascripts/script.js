@@ -106,3 +106,5 @@ function updateSubtotal(product) {
 
   return subTotal;
 }
+
+const clearLS = () => localStorage.clear();

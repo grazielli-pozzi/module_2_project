@@ -25,8 +25,6 @@ const verifyLoginData = async (req, res) =>{
   
     const userExists = await User.findOne({ email });
   
-    //console.log(userExists);
-  
     if (!userExists) {
         res.render('public/login', {errorMessage: 'Usuário os senha incorretos. Tente novamente!'});
   

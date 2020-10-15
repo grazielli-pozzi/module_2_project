@@ -8,7 +8,6 @@ const { generateEncryptedPassword } = require('../utils/passwordManager');
 /* GET home page */
 router.get('/', (req, res, next) => {
   if (req.session.currentUser) {
-    console.log(req.session.currentUser);
     res.render('public/index', {nome: req.session.currentUser.nomeCompleto});
   } else {
     res.render('public/index');
@@ -48,13 +47,9 @@ router.post('/login',  async (req, res) =>{
           return ;
       }
 
-      //console.log(userOK);
-
       const userCopy = JSON.parse(JSON.stringify(userOK));
 
       delete userCopy.senha;
-
-      console.log(userCopy);
 
       req.session.currentUser = userCopy;
 
@@ -85,7 +80,6 @@ router.post('/signup', async (req, res) =>{
           nivel: 'comum',
           pgtoPadrao: 'Dinheiro',
         });
-        console.log(newUser);
     
         await newUser.save();
         res.redirect('/login');

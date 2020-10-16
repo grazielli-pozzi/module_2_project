@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light nav-bar">
   <a class="navbar-brand" href="/">
     <img src="./images/Logo.gif" alt="logo" height="100">
   </a>
@@ -11,9 +11,29 @@
         <a class="nav-link" href="/#address">Endereços</a>
       </li>
       {{!-- Podemos usar class="nav-item active" no lugar de class="nav-item" se quisermos tirar o efeito de passar o mouse --}}
+      {{#if nome}}
       <li id="adjust-items-nav" class="nav-item">
-        <a class="nav-link" href="#">Faça o seu pedido</a>
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            <span>{{nome}}</span>
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="/perfil">Meu Perfil</a>
+            <a class="dropdown-item" href="/pedidos">Meus Pedidos</a>
+            <a class="dropdown-item" href="/cart">Meu Carrinho</a>
+            <a class="dropdown-item" href="/logout">Sair</a>
+          </div>
+        </div>
       </li>
+      <li id="ajust-items-nav" class="nav-item">
+        <a class="nav-link" href="/cart"><i class="fas fa-shopping-cart"></i></a>
+      </li>
+      {{else}}
+      <li id="adjust-items-nav" class="nav-item">
+        <a class="nav-link" href="/login">Faça o seu pedido</a>
+      </li>
+      {{/if}}
     </ul>
   </div>
 </nav>

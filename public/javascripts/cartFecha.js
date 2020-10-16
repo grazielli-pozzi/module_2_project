@@ -22,7 +22,8 @@ window.onload =  () => {
                             </td>
                             <td class="price">$<span>${thisId['preco']}</span></td>
                             <td class="subtotal">$<span>${subTotal}</span></td>
-                        </tr>`;
+                            <td class="excluir"><a href="" onclick="excluirItem('${id}')" data-toggle="tooltip" title="Excluir Item"><img src="../images/cancel.png" class="img-excluir" alt="excluir-bottom"></a></td>
+                    </tr>`;
     });
     
     tagHtml += `<tr>
@@ -31,10 +32,17 @@ window.onload =  () => {
                     <td></td>
                     <th scope="row">Total Pedido</th>
                     <th scope="row" id='total-value'>$<span>${sumTotal}</span></th>
+                    <td></td>
                 </tr>`; 
 
     document.getElementsByClassName('tbody')[0].innerHTML = tagHtml;
 }
+
+//15/10
+function excluirItem(idPro){
+
+    localStorage.removeItem(idPro);
+};
 
 const enviaDados = async () => {
 

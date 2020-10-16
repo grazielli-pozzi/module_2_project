@@ -11,7 +11,7 @@ const path = require('path');
 
 
 mongoose
-    .connect('mongodb://localhost/burguer-expresso', { useNewUrlParser: true })
+    .connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then((x) => {
         console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`);
     })
@@ -46,14 +46,29 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 hbs.registerPartials(__dirname + '/views/partials');
 
+<<<<<<< HEAD
 //Rodrigo
+=======
+hbs.registerHelper('subtotal', (preco, qty) => preco * qty);
+hbs.registerHelper('total', (itens) => {
+    const itensArray = [...itens];
+    let total = 0;
+    itensArray.forEach((elem) => total += elem.preco * elem.quantidade);
+    return total;
+});
+
+>>>>>>> main
 const session = require('express-session');
 const connectMongo = require('connect-mongo');
 
 const MongoStore = connectMongo(session);
 
 app.use(session({
+<<<<<<< HEAD
     secret: 'fsdfsdsfsf33242344242dfsdfsfsdfssdfs',
+=======
+    secret: process.env.SECRET,
+>>>>>>> main
     saveUnintialized: false,
     resave: true,
     rolling: true,
@@ -63,6 +78,7 @@ app.use(session({
         ttl: 60*60*24,
     }),
 }));
+<<<<<<< HEAD
 
 
 // default value for title local
@@ -73,11 +89,33 @@ const cart = require('./routes/cart.routes')
 const auth = require('./routes/auth.routes');
 const private = require('./routes/private.routes');
 
+=======
+
+// default value for title local
+app.locals.title = 'Burguer Expresso';
+
+const index = require('./routes/index');
+const cart = require('./routes/cart.routes');
+const private = require('./routes/private.routes');
+>>>>>>> main
 
 app.use('/', index);
+
+app.use((req, res, next) => {
+    if(!req.session.currentUser){
+        res.redirect('/login?sessionExpired=true');
+        return;
+    }
+    next();
+});
+
 app.use('/', cart);
+<<<<<<< HEAD
 app.use('/', auth);
 app.use('/', private);
 
+=======
+app.use('/', private);
+>>>>>>> main
 
 module.exports = app;

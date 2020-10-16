@@ -1,6 +1,5 @@
 const mongoose = require('mongoose')
 const Produto = require('../models/Produto.model');
-const Usuario = require('../models/Usuario.model');
 
 mongoose
 	.connect('mongodb://localhost/burguer-expresso', { useNewUrlParser: true })
@@ -275,6 +274,7 @@ const produtoSeed = [
 
 ];
 
+<<<<<<< HEAD
 const usuarioSeed = [{
 		nomeCompleto: 'Desenvolvedor',
 		email: 'dev@dev.com.br',
@@ -295,11 +295,14 @@ const usuarioSeed = [{
 		pgtoPadrao: 'Cartao de Credito',
 }];
 
+=======
+>>>>>>> main
 Produto.create(produtoSeed)
 	.then((result) => {
 		console.log(`Criou ${result.length} produtos.`);
 	})
 	.catch((error) => console.log(error));
+<<<<<<< HEAD
 
 Usuario.create(usuarioSeed)
 	.then((result) => {
@@ -313,3 +316,5 @@ Usuario.create(usuarioSeed)
 
  module.exports = seed;
 >>>>>>> 85ab5005d67f8cdcb43c7972b0af2abacca3b0bd
+=======
+>>>>>>> main

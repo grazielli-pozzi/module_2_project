@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 //const Produto = require('../models/Produto.model');
 
+=======
+>>>>>>> main
 window.onload =  () => {
     const ids = Object.keys(localStorage);
     
@@ -18,12 +21,20 @@ window.onload =  () => {
                             <th scope="row">${itemNr}</th>
                             <td>${thisId['nome']}</td>
                             <td class="quantity">
+<<<<<<< HEAD
                                 <input class='quantity-value' type="number" value=${thisId['qty']} min="1"  onchange="recalculaValor();" />
                             </td>
                             <td class="price">$<span>${thisId['preco']}</span></td>
                             <td class="subtotal">$<span>${subTotal}</span></td>
                             <td class="excluir"><a href="" onclick="excluirItem('${id}')" data-toggle="tooltip" title="Excluir Item"><img src="../images/cancel.png" class="img-excluir" alt="excluir-bottom"></a></td>
                     </tr>`;
+=======
+                                <input class='quantity-value' type="number" value=${thisId['qty']} min="0"  onchange="recalculaValor();" />
+                            </td>
+                            <td class="price">$<span>${thisId['preco']}</span></td>
+                            <td class="subtotal">$<span>${subTotal}</span></td>
+                        </tr>`;
+>>>>>>> main
     });
     
     tagHtml += `<tr>
@@ -32,18 +43,24 @@ window.onload =  () => {
                     <td></td>
                     <th scope="row">Total Pedido</th>
                     <th scope="row" id='total-value'>$<span>${sumTotal}</span></th>
+<<<<<<< HEAD
                     <td></td>
+=======
+>>>>>>> main
                 </tr>`; 
 
     document.getElementsByClassName('tbody')[0].innerHTML = tagHtml;
 }
 
+<<<<<<< HEAD
 //15/10
 function excluirItem(idPro){
 
     localStorage.removeItem(idPro);
 };
 
+=======
+>>>>>>> main
 const enviaDados = async () => {
 
     //console.log('preparando dados para enviar');
@@ -93,4 +110,8 @@ const enviaDados = async () => {
         console.log(error);
     }
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> main

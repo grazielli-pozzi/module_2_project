@@ -3,6 +3,7 @@ const router  = express.Router();
 
 const Usuario = require('../models/Usuario.model');
 const Pedido = require('../models/Pedido.model');
+<<<<<<< HEAD
 const  {generateEncryptedPassword, verifyPassword} = require('../utils/passwordManager');
 
 // router.use((req, res, next)=> {
@@ -27,21 +28,29 @@ router.get('/confirmation/:id', async (req, res) =>{
     };
   
   });
+=======
+const { generateEncryptedPassword } = require('../utils/passwordManager');
+>>>>>>> main
 
 router.get('/pedidos', async (req, res) => {
-    console.log('ACESSOU ROTA PEDIDOS');
-    // omitida verificação de cookie if (req.session.currentUser)
-    const usuario = await Usuario.find();
-    const pedidos = await Pedido.find({usuarioID: usuario[0]._id});
+    if (req.session.currentUser) {
+        const usuario = await Usuario.findById(req.session.currentUser._id);
+        const pedidos = await Pedido.find({usuarioID: usuario});
+        
+        res.render('private/pedidos', {pedidos, nome: req.session.currentUser.nomeCompleto});
 
-    res.render('private/pedidos', {pedidos});
+    } else {res.redirect('/');}
 });
 
+<<<<<<< HEAD
 //Rodrigo - 13/10 - Mudei rota
+=======
+>>>>>>> main
 router.get('/perfil', async (req, res, next) => {
 
     const {sessionExpired} = req.query;
   
+<<<<<<< HEAD
     //console.log(sessionExpired);
   
     // if (!sessionExpired){
@@ -54,6 +63,17 @@ router.get('/perfil', async (req, res, next) => {
     // }else {
     //   res.render('public/login', {sessionExpired});
     // };
+=======
+  
+    if (!sessionExpired){
+  
+      const data = await Usuario.findOne({email: req.session.currentUser.email});
+  
+      res.render('private/perfil', {data, nome: req.session.currentUser.nomeCompleto});
+    }else {
+      res.render('public/login', {sessionExpired});
+    };
+>>>>>>> main
   
   });
   
@@ -81,8 +101,11 @@ router.get('/perfil', async (req, res, next) => {
     };
   
   });
+<<<<<<< HEAD
   // Fim 13/10
 
 
+=======
+>>>>>>> main
 
 module.exports = router;

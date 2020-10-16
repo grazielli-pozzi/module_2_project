@@ -4,17 +4,22 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "dev": "nodemon ./bin/www",
+    "dev": "DEBUG=module-2-project:* nodemon ./bin/www",
     "dev-windows": "nodemon ./bin/www"
   },
   "dependencies": {
+<<<<<<< HEAD
     "bcrypt": "^5.0.0",
+=======
+>>>>>>> main
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
     "cep-promise": "^4.0.2",
+    "connect-mongo": "^3.2.0",
     "cookie-parser": "^1.4.3",
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
+    "express-session": "^1.17.1",
     "hbs": "^4.0.1",
     "mongoose": "^5.2.10",
     "morgan": "^1.9.0",

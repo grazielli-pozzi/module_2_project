@@ -95,6 +95,18 @@ function updateSubtotal(product) {
   let price = product.querySelector('.price span');
   let quantity = product.querySelector('.quantity input');
 
+  let idProd = product.getAttribute('id');
+  const thisId = JSON.parse(localStorage.getItem(idProd));
+  const qtyAnt = thisId['qty'];
+
+  if (qtyAnt > quantity.value){
+    //console.log('diminuiu');
+    deleteProduto(idProd);
+  } else if(qtyAnt < quantity.value) {
+    //console.log('aumentou');
+    createProduto(idProd);
+  }
+
   let valPrice = price.innerHTML;
   let valQuantity = quantity.value;
 
@@ -105,6 +117,32 @@ function updateSubtotal(product) {
   subtotal.innerHTML = subTotal;
 
   return subTotal;
+}
+
+const createProduto = (id) => {
+	// if (Object.keys(localStorage).includes(id)) {
+		const data = JSON.parse(localStorage.getItem(id));
+		data.qty += 1;
+		localStorage.setItem(id, JSON.stringify(data));
+		//document.getElementsByClassName(`${id}`)[0].textContent = data.qty;
+	// } else {
+	// 	const data = {nome, preco, qty: 1};
+	// 	localStorage.setItem(id, JSON.stringify(data));
+	// 	document.getElementsByClassName(`${id}`)[0].textContent = data.qty;
+	// }
+}
+
+const deleteProduto = (id) => {
+	const data = JSON.parse(localStorage.getItem(id));
+	// if (data.qty > 1) {
+		data.qty -= 1;
+		localStorage.setItem(id, JSON.stringify(data));
+		//document.getElementsByClassName(`${id}`)[0].textContent = data.qty;
+	// }
+	// else {
+	// 	localStorage.removeItem(id);
+	// 	document.getElementsByClassName(`${id}`)[0].textContent = 0;
+	// }
 }
 
 const clearLS = () => localStorage.clear();

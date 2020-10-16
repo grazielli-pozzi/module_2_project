@@ -1,5 +1,3 @@
-//const Produto = require('../models/Produto.model');
-
 window.onload =  () => {
     const ids = Object.keys(localStorage);
     

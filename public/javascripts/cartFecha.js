@@ -18,7 +18,7 @@ window.onload =  () => {
                             <th scope="row">${itemNr}</th>
                             <td>${thisId['nome']}</td>
                             <td class="quantity">
-                                <input class='quantity-value' type="number" value=${thisId['qty']} min="0"  onchange="recalculaValor();" />
+                                <input class='quantity-value' type="number" value=${thisId['qty']} min="1"  onchange="recalculaValor();" />
                             </td>
                             <td class="price">$<span>${thisId['preco']}</span></td>
                             <td class="subtotal">$<span>${subTotal}</span></td>

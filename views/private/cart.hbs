@@ -4,7 +4,7 @@
     <h1>Carrinho</h1>
     <div class="cart-container " id="cart-container ">
         <div class="cart-info">
-            <table class="table table-striped">
+            <table class="table table-striped" id='table-cart'>
             <thead>
                 <tr>
                 <th scope="col">#</th>
@@ -29,32 +29,16 @@
                         <option value="1">{{this.enderecos.[0].rua}},{{this.enderecos.[0].numero}} - {{this.enderecos.[0].complemento}} - {{this.enderecos.[0].cidade}}</option>   
                     {{/each}}
                 {{/if}}                
-<<<<<<< HEAD
-                {{!-- <option value="1">Rua Castro Alves, 123, Centro - Salvador - BA</option>
-                <option value="2">Rua Amaralina, 232 - Nova Esperança - Itabuna - BA</option> --}}
-=======
->>>>>>> main
             </select>
 
             <h3>Forma de Pagamento</h3>
 
             <select id="formaPgto">
                 <option value="1">Dinheiro</option>
-<<<<<<< HEAD
-                {{!-- <option value="2">Cartão Crédito</option>
-                <option value="2">Cartão Débito</option> --}}
-=======
->>>>>>> main
             </select>
 
             <button class="btnNew btn-lg btn-primary btn-block btn-signin" type="button" onclick="enviaDados()">Finalizar Pedido</button>
         </div>
     </div>
 </form>
-<<<<<<< HEAD
-
 <script src="/javascripts/cartFecha.js"></script>
-{{!-- <script src="/javascripts/cart.js"></script> --}}
-=======
-<script src="/javascripts/cartFecha.js"></script>
->>>>>>> main

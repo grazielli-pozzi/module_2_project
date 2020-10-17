@@ -3,34 +3,7 @@ const router  = express.Router();
 
 const Usuario = require('../models/Usuario.model');
 const Pedido = require('../models/Pedido.model');
-<<<<<<< HEAD
-const  {generateEncryptedPassword, verifyPassword} = require('../utils/passwordManager');
-
-// router.use((req, res, next)=> {
-//     if(!req.session.currentUser){
-//         res.redirect('/login?sessionExpired=true');
-//         return ;
-//     }
-//     next();
-// });
-router.get('/confirmation/:id', async (req, res) =>{
-
-    try {
-      const {id} = req.params;
-  
-      const {sessionExpired} = req.query;
-      //console.log(sessionExpired);
-    
-      res.render('private/confirmation', {codigoPedido: id});
-      
-    } catch (error) {
-      console.log(error);
-    };
-  
-  });
-=======
 const { generateEncryptedPassword } = require('../utils/passwordManager');
->>>>>>> main
 
 router.get('/pedidos', async (req, res) => {
     if (req.session.currentUser) {
@@ -42,28 +15,10 @@ router.get('/pedidos', async (req, res) => {
     } else {res.redirect('/');}
 });
 
-<<<<<<< HEAD
-//Rodrigo - 13/10 - Mudei rota
-=======
->>>>>>> main
 router.get('/perfil', async (req, res, next) => {
 
     const {sessionExpired} = req.query;
   
-<<<<<<< HEAD
-    //console.log(sessionExpired);
-  
-    // if (!sessionExpired){
-  
-      //console.log('entrou');
-      const data = await Usuario.findOne({email: req.session.currentUser.email});
-      //console.log(data);
-  
-      res.render('private/perfil', {data});
-    // }else {
-    //   res.render('public/login', {sessionExpired});
-    // };
-=======
   
     if (!sessionExpired){
   
@@ -73,7 +28,6 @@ router.get('/perfil', async (req, res, next) => {
     }else {
       res.render('public/login', {sessionExpired});
     };
->>>>>>> main
   
   });
   
@@ -101,11 +55,5 @@ router.get('/perfil', async (req, res, next) => {
     };
   
   });
-<<<<<<< HEAD
-  // Fim 13/10
-
-
-=======
->>>>>>> main
 
 module.exports = router;

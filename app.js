@@ -46,9 +46,6 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 hbs.registerPartials(__dirname + '/views/partials');
 
-<<<<<<< HEAD
-//Rodrigo
-=======
 hbs.registerHelper('subtotal', (preco, qty) => preco * qty);
 hbs.registerHelper('total', (itens) => {
     const itensArray = [...itens];
@@ -57,18 +54,13 @@ hbs.registerHelper('total', (itens) => {
     return total;
 });
 
->>>>>>> main
 const session = require('express-session');
 const connectMongo = require('connect-mongo');
 
 const MongoStore = connectMongo(session);
 
 app.use(session({
-<<<<<<< HEAD
-    secret: 'fsdfsdsfsf33242344242dfsdfsfsdfssdfs',
-=======
     secret: process.env.SECRET,
->>>>>>> main
     saveUnintialized: false,
     resave: true,
     rolling: true,
@@ -78,18 +70,6 @@ app.use(session({
         ttl: 60*60*24,
     }),
 }));
-<<<<<<< HEAD
-
-
-// default value for title local
-app.locals.title = 'Express - Generated with IronGenerator';
-
-const index = require('./routes/index');
-const cart = require('./routes/cart.routes')
-const auth = require('./routes/auth.routes');
-const private = require('./routes/private.routes');
-
-=======
 
 // default value for title local
 app.locals.title = 'Burguer Expresso';
@@ -97,7 +77,6 @@ app.locals.title = 'Burguer Expresso';
 const index = require('./routes/index');
 const cart = require('./routes/cart.routes');
 const private = require('./routes/private.routes');
->>>>>>> main
 
 app.use('/', index);
 
@@ -110,12 +89,6 @@ app.use((req, res, next) => {
 });
 
 app.use('/', cart);
-<<<<<<< HEAD
-app.use('/', auth);
 app.use('/', private);
-
-=======
-app.use('/', private);
->>>>>>> main
 
 module.exports = app;

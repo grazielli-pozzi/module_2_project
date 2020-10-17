@@ -274,29 +274,6 @@ const produtoSeed = [
 
 ];
 
-<<<<<<< HEAD
-const usuarioSeed = [{
-		nomeCompleto: 'Desenvolvedor',
-		email: 'dev@dev.com.br',
-		cpf: '000.000.000-00',
-		telefone: { ddd: 11, numero: 012345678 },
-		senha: 'batata123',
-		enderecos: [{
-				cep: '00000-000',
-				estado: 'SP',
-				cidade: 'São Paulo',
-				rua: 'Desenvolvedor',
-				numero: '00A',
-				complemento: 'Ap 01B',
-				bairro: 'Vila Desenvolvedor'
-		}],
-		pedidos: [],
-		nivel: 'admin',
-		pgtoPadrao: 'Cartao de Credito',
-}];
-
-=======
->>>>>>> main
 Produto.create(produtoSeed)
 	.then((result) => {
 		console.log(`Criou ${result.length} produtos.`);

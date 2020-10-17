@@ -144,8 +144,5 @@ const deleteProduto = (id) => {
 	// 	document.getElementsByClassName(`${id}`)[0].textContent = 0;
 	// }
 }
-<<<<<<< HEAD
-=======
 
 const clearLS = () => localStorage.clear();
->>>>>>> main

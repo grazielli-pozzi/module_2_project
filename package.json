@@ -4,14 +4,10 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "dev": "DEBUG=module-2-project:* nodemon ./bin/www",
+    "dev": "nodemon ./bin/www",
     "dev-windows": "nodemon ./bin/www"
   },
   "dependencies": {
-<<<<<<< HEAD
-    "bcrypt": "^5.0.0",
-=======
->>>>>>> main
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
     "cep-promise": "^4.0.2",

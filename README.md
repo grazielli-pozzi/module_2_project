@@ -27,8 +27,9 @@ For technical docs, go [here](docs/docs.md)
 
 ##### Rodapé
 
-Esse projeto foi desenvolvido como parte do Módulo 2 do curso de Desenvolvimento Web Part-Time da Ironhack
-sendo exclusivo aos seus autores e à escola.
+Esse projeto foi desenvolvido por [Rodrigo Muniz](https://github.com/ramunizbh) e [Danny Nisenbaum](https://github.com/unimatrix2)
+como parte do Módulo 2 do curso de Desenvolvimento Web Part-Time da Ironhack sendo exclusivo aos seus autores 
+e à escola.
 
 ###### English version
 

@@ -20,7 +20,7 @@ window.onload =  () => {
                             </td>
                             <td class="price">$<span>${thisId['preco']}</span></td>
                             <td class="subtotal">$<span>${subTotal}</span></td>
-                            <td class="excluir"><a href="" onclick="excluirItem('${id}')" data-toggle="tooltip" title="Excluir Item"><img src="../images/cancel.png" class="img-excluir" alt="excluir-bottom"></a></td>
+                            <td class="excluir"><img src="../images/cancel.png" class="img-excluir" alt="excluir-bottom" onclick="excluirItem('${id}', this)" data-toggle="tooltip" title="Excluir Item"></td>
                     </tr>`;
     });
     
@@ -37,9 +37,13 @@ window.onload =  () => {
 }
 
 //15/10
-function excluirItem(idPro){
+function excluirItem(idPro, idRow){
 
     localStorage.removeItem(idPro);
+
+    var i=idRow.parentNode.parentNode.rowIndex;
+    document.getElementById('table-cart').deleteRow(i);
+    recalculaValor();
 };
 
 const enviaDados = async () => {

@@ -13,7 +13,7 @@ different flows to come up with a simple, fast and direct flow for a user orderi
 burguer joint that also provides the restaurant with useful data on sales without large
 investments.
 
-# Diferenciais
+# Diferenciais (Differencials)
 
 Nosso carrinho é público. O usuário só precisa de uma conta para efeutar o pedido na hora de pagar. 
 Assim, o cardápido é transparente, todos os produtos e preços estão dispostos na mesma página, sem
@@ -24,7 +24,7 @@ entrelinhas ou pegadinhas.
 Our cart is public. Registering occurs only when the user needs to confirm the order. As a result, 
 our menu is transparent: every product and price in the same page, no tricks or hidden criteria.
 
-## Persistência
+## Persistência (Persistence)
 
 Nosso carrinho é persistente. Caiu a internet? Fechou o navegador? Esqueceu de fazer login? 
 Não importa! Seu carrinho sempre estará lá até que você saia ou complete seu pedido.
@@ -33,3 +33,13 @@ Não importa! Seu carrinho sempre estará lá até que você saia ou complete se
 
 Our cart is persistent. No connection? Closed your browser? Forgot to login? Doesn't matter! 
 Your cart will always be there until you logout or complete your order.
+
+## Tráfego de Dados (Data Usage)
+
+Tentamos minimizar o tráfego de dados entre as partes da plataforma, utilizando ao máixmo a renderização em
+servidor para evitar processamento no frontend e reduzindo ao máximo a quantidade de consultas à base de dados.
+
+###### English version
+
+We tried to minimize data usage between parts or our plataform, using the most out of server-side rendering to avoid
+frontend scripts and reducing the number of database queries.

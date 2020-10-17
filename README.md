@@ -33,5 +33,5 @@ e à escola.
 
 ###### English version
 
-This project was developed as part of Ironhack's Part Time Web Development course's second module,
+This project was developed by [Rodrigo Muniz](https://github.com/ramunizbh) and [Danny Nisenbaum](https://github.com/unimatrix2) as part of Ironhack's Part Time Web Development course's second module,
 being exclusive to authors and the school.
